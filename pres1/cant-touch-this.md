@@ -12,19 +12,29 @@ slideNumber: true
 history: true
 ---
 
-
-## Bla bla
-
-- Some notes
-
 # Touchless interface
 
 ## A what?
-> - Control your computer without touching anything
-> - Some other stuff
+> * A way of interacting without touching anything
+> * (Fully) control a computer:
+> * Extendable to use for other purposes
 
 ## But how?
 > - Leap Motion
+> - Build software to process input, interact with machine
+> - Combine multiple sensors (if possible)
+
+# Research
+
+## Gestures
+> - What gestures?
+> - How usable are gestures for interaction
+> - Learning curve
+> - Visual feedback
+
+## Medical purposes
+> - Viable to use for medical purposes?
+> - Can hardware be replaced?
 
 # Demo
 
@@ -34,5 +44,5 @@ history: true
 
 ## Any questions?
 
-Slides are available at GitLab under  
+Slides are available on GitLab under  
 [timvisee/cant-touch-this-project](https://gitlab.com/timvisee/cant-touch-this-project)
