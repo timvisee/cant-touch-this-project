@@ -1,5 +1,8 @@
 pages:
   stage: deploy
+  before_script:
+  - apt update -q
+  - apt install pandoc -yqq
   script:
   - |
     for d in pres*/; do
