@@ -1,12 +1,14 @@
 pages:
   stage: deploy
   script:
-  - for d in pres*/; do \
+  - |
+    for d in pres*/; do
       echo "Building presentation in $d..."
-      cd "$d" \
-      make \
-      cd - \
+      cd "$d"
+      make
+      cd -
     done
+    |
   - mkdir .public
   - cp -r pres* .public
   - mv .public public
