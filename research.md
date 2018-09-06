@@ -1,20 +1,21 @@
 ### Preparation research
-- Is it possible to use multiple Leap Motion sensors, to allow combining sensors
-  data?
-    - Would better detection accuracy be achieved by combining sensor data?
-    - It it possible to use an additional sensor such as the Xbox Kinect without
-      too much implementation effort.
-- Is using a gesture based interface to control a computer even viable to use
-  anyway? Viable defines:
-    - Is it more efficient than existing input methods, such as a keyboard and
-      mouse. Is interacting faster?
-    - Is it usable in the medical world in sterile environments, to replace
-      touch based interaction?
+- Is it possible to use multiple Leap Motion sensors, to combine sensor data?
+    - Can improved detection accuracy be achieved by combining sensor data?
+    - It it possible to use an additional sensor, such as the Xbox Kinect,
+      without too much implementation difficulties?
+- Is it viable to control a computer with a touchless gesture based interface?
+  Viable is defined as:
+    - Is it more efficient than existing input methods, such as keyboards mice.
+    - Is it faster than existing input methods?
+    - Is it usable in the medical world in sterile environments, with the goal
+      to replace physical input methods?
+
   If not, there is no point in implementing such as system.
-- Is there a usable library available for implementing gesture detection, that
-  we can use for our codebase and environment? Is it good enough so we don't
-  have to implement a gesture detection system ourselves?
-- How to implement gesture based detection based on hand coordinates?
+
+- Are there existing gesture detection libraries available, so that we can use
+  these for our codebase and environment? Is it good enough so we don't have to
+  implement a gesture detection system ourselves?
+- How do we implement gesture detection based on hand coordinates?
 
 ### Build prototype
 - Build a general purpose application, that allows interacting with a computer.
