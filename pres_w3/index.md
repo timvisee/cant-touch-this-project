@@ -25,14 +25,15 @@ history: true
 ## How?
 * Start with limited research
 * Focus on implementation
-* Conduct experiments
+* Conduct experiments, produce results
 
 # Planning
 
-## Everything has changed
-* Different week mapping
-* First sprint, soon
-* Experiment last weeks
+## Week mapping
+* Research almost over
+* ~4 week implementation period
+* ~3 days for user manual
+* ~2 days of experimenting
 
 # Last week
 
@@ -63,6 +64,7 @@ history: true
 ## Continue research
 * Gesture based interface viable
 * Gesture detection methods
+* Possible medical applications
 
 ## Start implementing
 * First abstractions
@@ -71,8 +73,6 @@ history: true
 * Initial backend for web configuration
 
 # Thanks!
-
-- - -
 
 ## Any questions?
 
