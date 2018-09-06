@@ -27,8 +27,6 @@ history: true
 * Focus on implementation
 * Conduct experiments, produce results
 
----
-
 # Planning
 
 ## Week mapping
@@ -37,8 +35,6 @@ history: true
 * ~3 days for user manual
 * ~2 days of experimenting
 
----
-
 # Last week
 
 ## Research
@@ -46,8 +42,6 @@ history: true
 * ... and other sensors
 * SDK possibilities, alternatives
 * Gesture detection libraries
-
----
 
 # Achievements & Findings
 
@@ -65,8 +59,6 @@ history: true
 * No libraries for Rust
 * Possible usable C implementation
 
----
-
 # Next week
 
 ## Continue research
@@ -79,8 +71,6 @@ history: true
 * Sensor data fetching
 * Basic movement detection
 * Initial backend for web configuration
-
----
 
 # Thanks!
 
