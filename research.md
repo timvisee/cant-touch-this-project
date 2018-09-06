@@ -16,10 +16,24 @@ Research:
 - How to implement gesture based detection based on hand coordinates?
 
 Build prototype:
-- TODO: ...
+- Build a general purpose application, that allows interacting with a computer.
+  General purpose in the sense that it is usable on a computer for general
+  interaction, such as reading a file or for web browsing.
+- Start implementing simple hand movements based on coordinate/position
+  thresholds.
+- Work in implementing more advanced gesture detection once a first iteration is
+  running.
+- Configurable actions for hand movements and gestures through a GUI. Think of
+  the following actions:
+    - Move the mouse and left/right click
+    - Scroll
+    - Open a file
+    - Switch windows
+    - Invoke a key press
+    - ...
 
 Experiment:
-- Experiment what gestures are usable
+- Experiment what gestures are usable?
 - Experiment what gestures can be detected by the Leap Motion (accuracy)
     - Pinching
     - Pointing
