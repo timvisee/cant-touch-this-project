@@ -12,22 +12,63 @@ slideNumber: true
 history: true
 ---
 
-# Intro
+# Different approach
 
-## Agenda
-* New research methodology
-* Research questions
-* Building prototype
-* Conducting experiments
+## Why?
+* Too broad
+* Little on gestures
+* Project in mind
+* Why search for a problem?
 
-# TODO
+> * _More effective:_ Research by trying
 
-## TODO
-> - TODO
-> - TODO
-> - TODO
+## How?
+* Start with limited research
+* Focus on implementation
+* Conduct experiments
 
-# Demo
+# Planning
+
+## Everything has changed
+* Different week mapping
+* First sprint, soon
+* Experiment last weeks
+
+# Last week
+
+## Research
+* Multiple Leap Motion sensors
+* ... and other sensors
+* SDK possibilities, alternatives
+* Gesture detection libraries
+
+# Achievements & Findings
+
+## Sensors
+* 1 Leap Motion / machine
+* Other sensors: difficult to abstract
+
+## SDK & Platforms
+* Proprietary SDK
+* Proprietary sensor data
+* Open-source implementation: limited & broken
+* Custom game engine implementation, not usable 
+
+## Gesture detection
+* No libraries for Rust
+* Possible usable C implementation
+
+# Next week
+
+## Continue research
+* Gesture based interface viable
+* Gesture detection methods
+
+## Start implementing
+* First abstractions
+* Sensor data fetching
+* Basic movement detection
+* Initial backend for web configuration
 
 # Thanks!
 
