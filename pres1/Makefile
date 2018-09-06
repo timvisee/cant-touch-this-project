@@ -1,4 +1,4 @@
-INPUT ?= cant-touch-this
+INPUT ?= index
 
 slides:
 	pandoc $(INPUT).md \
