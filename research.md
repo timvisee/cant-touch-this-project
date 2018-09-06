@@ -31,6 +31,7 @@
     - Open a file
     - Switch windows
     - Invoke a key press
+    - Invoke a user defined command
     - ...
 
 ### Experiment
@@ -38,9 +39,10 @@
   How accurate is the detection?
     - Pinching
     - Pointing
-    - Twisting
-    - Tapping with thumb
-    - Draw circle
+    - Pointing with multiple fingers
+    - Twisting (opening a bottle, or a rotate motion with two fingers)
+    - Tapping your thumb against your index finger
+    - Draw circle in various directions
 - How effective are hand gestures versus basic hand movements (with thresholds)?
 - What is in our opinion the best way to:
     - Move the mouse and left/right click
