@@ -4,7 +4,8 @@ period 13.
 
 ## Slides
 Slides:
-- [`pres1`](https://timvisee.gitlab.io/cant-touch-this-project/pres1/index.html)
+- [`pres_w2`](https://timvisee.gitlab.io/cant-touch-this-project/pres_w2)
+- [`pres_w3`](https://timvisee.gitlab.io/cant-touch-this-project/pres_w3)
 
 Slides in this repository are made with [reveal.js][revealjs], based on markdown
 files.
