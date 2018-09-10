@@ -1,6 +1,6 @@
 ---
-title: "Can't Touch This - Progress Report Week 3"
-subtitle: "A touchless computing interface"
+title: "Can't Touch This"
+subtitle: "Progress report - Week 3"
 author: Nathan Bakhuijzen & Tim Visée
 date: 2018-09-10
 categories:
