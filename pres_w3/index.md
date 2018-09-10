@@ -7,6 +7,7 @@ categories:
 - presentation
 - rust
 theme: solarized
+transition: concave
 progress: true
 slideNumber: true
 history: true
