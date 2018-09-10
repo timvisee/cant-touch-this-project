@@ -14,6 +14,11 @@ history: true
 
 # Different approach
 
+## How?
+* Start with limited research
+* Focus on implementation
+* Conduct experiments, produce results
+
 ## Why?
 * Too broad
 * Little on gestures
@@ -21,11 +26,6 @@ history: true
 * Why search for a problem?
 
 > * _More effective:_ Research by trying
-
-## How?
-* Start with limited research
-* Focus on implementation
-* Conduct experiments, produce results
 
 # Planning
 
