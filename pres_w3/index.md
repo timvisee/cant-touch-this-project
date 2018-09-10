@@ -1,5 +1,5 @@
 ---
-title: "Can't Touch This - W3"
+title: "Can't Touch This - Progress Report Week 3"
 subtitle: "A touchless computing interface"
 author: Nathan Bakhuijzen & Tim Visée
 date: 2018-09-10
@@ -41,7 +41,8 @@ history: true
 * Multiple Leap Motion sensors
 * ... and other sensors
 * SDK possibilities, alternatives
-* Gesture detection libraries
+* Gesture recognition libraries
+* Gesture recognition methods
 
 # Achievements & Findings
 
@@ -55,9 +56,13 @@ history: true
 * Open-source implementation: limited & broken
 * Custom game engine implementation, not usable 
 
-## Gesture detection
+## Gesture libraries
 * No libraries for Rust
 * Possible usable C implementation
+
+## Gesture recognition
+* ML is expensive
+* Circular measurements
 
 # Next week
 
