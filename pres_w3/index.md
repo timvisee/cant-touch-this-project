@@ -48,29 +48,29 @@ history: true
 # Achievements & Findings
 
 ## Sensors
-* 1 Leap Motion / machine [*][1-sensor]
+* 1 Leap Motion / machine [⧉][1-sensor]
 * Other sensors: difficult to abstract
 
 [1-sensor]: https://forums.leapmotion.com/t/multiple-leap-motion-support/770
 
 ## SDK & Platforms
-* Proprietary SDK 😠 [*][leap-motion-sdk]
+* Proprietary SDK 😠 [⧉][leap-motion-sdk]
 * Proprietary sensor data 😡
-* Open-source implementation: limited & broken [*][open-sdk]
+* Open-source implementation: limited & broken [⧉][open-sdk]
 * Custom game engine implementation, not usable 
 
 [leap-motion-sdk]: https://developer.leapmotion.com/sdk/v2
 [open-sdk]: https://github.com/openleap
 
 ## Gesture libraries
-* No libraries for Rust [*][no-gesture-crate]
+* No libraries for Rust [⧉][no-gesture-crate]
 * Possible usable C implementation
 
 [no-gesture-crate]: https://crates.io/search?q=gesture
 
 ## Gesture recognition
-* ML is expensive [*][ml-is-expensive]
-* Circular measurements [*][ml-is-expensive]
+* ML is expensive [⧉][ml-is-expensive]
+* Circular measurements [⧉][ml-is-expensive]
 
 [ml-is-expensive]: https://datascience.stackexchange.com/questions/26209/why-is-training-take-so-long-on-my-gpu
 [circular-measurements]: https://www.slideshare.net/RACSOstudentHELP/as-level-circular-measure-geometry-explained
