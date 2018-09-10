@@ -51,8 +51,8 @@ history: true
 * Other sensors: difficult to abstract
 
 ## SDK & Platforms
-* Proprietary SDK
-* Proprietary sensor data
+* Proprietary SDK 😠
+* Proprietary sensor data 😡
 * Open-source implementation: limited & broken
 * Custom game engine implementation, not usable 
 
