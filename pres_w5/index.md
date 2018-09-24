@@ -42,5 +42,8 @@ history: true
 
 ## Any questions?
 
-Slides are available on GitLab at  
+Slides:  
 [gitlab.com/timvisee/cant-touch-this-project](https://gitlab.com/timvisee/cant-touch-this-project)
+
+Project:  
+[gitlab.com/timvisee/cant-touch-this](https://gitlab.com/timvisee/cant-touch-this)
