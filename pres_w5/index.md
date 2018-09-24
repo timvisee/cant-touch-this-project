@@ -26,6 +26,7 @@ history: true
 * Build pipeline
 * Extend `leap-rs` library
 * Circular measurements, additional processing
+* CI
 
 ## Pipeline
 ![](./cant-touch-this-pipeline.svg)
