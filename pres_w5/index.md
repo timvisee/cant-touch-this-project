@@ -1,8 +1,8 @@
 ---
 title: "Can't Touch This"
 subtitle: "Progress report - Week 5"
-author: Nathan Bakhuijzen
-date: 2018-09-24
+author: Nathan Bakhuijzen, Tim Visée
+date: 2018-09-17
 categories:
 - presentation
 - rust
@@ -16,23 +16,26 @@ history: true
 # Planning
 
 ## Week mapping
-* Week 3 - 6: Implementation of platform
+* **Week 3 - 6: Implementation of platform**
 * Week 7: Writing user manual (3 days)
 * Week 7: Conducting experiments (2 days)
 
 # Last week
 
 ## Development
-* Basic foundation
-* `leap-rs` library
-* Circular measurements
+* Build pipeline
+* Extend `leap-rs` library
+* Circular measurements, additional processing
+
+## Pipeline
+![](./cant-touch-this-pipeline.svg)
 
 # This week
 
 ## Continue development
-* Finish circular measurements
-* Record gestures, convert to traces
-* Develop as we go
+* Record gesture templates
+* Build web configuration panel
+* Real-time gesture detection
 
 # Thanks!
 
