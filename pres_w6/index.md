@@ -40,8 +40,6 @@ history: true
 * Trimming down recorded gestures
 * Configurable actions
 
-# [Demo (Get Hyped!)](http://localhost:8000)
-
 # Thanks!
 
 ## Any questions?
