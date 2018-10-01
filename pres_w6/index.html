@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Nathan Bakhuijzen, Tim Visée">
+  <meta name="dcterms.date" content="2018-10-01">
+  <title>Can’t Touch This</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="template/css/reveal.css">
+  <style type="text/css">
+    code{white-space: pre;}
+
+    
+    
+    .reveal a[href^="#"]:visited {
+      color: #8ea9d2;
+    }
+    
+    .slide {
+        text-align: left;
+    }
+    
+    .reveal p, .slide {
+        line-height: 1.5 !important;
+    }
+  </style>
+  <link rel="stylesheet" href="template/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'template/css/print/pdf.css' : 'template/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="template/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Can’t Touch This</h1>
+  <p class="subtitle">Progress report - Week 6</p>
+  <p class="author">Nathan Bakhuijzen, Tim Visée</p>
+  <p class="date">2018-10-01</p>
+</section>
+
+<section><section id="planning" class="title-slide slide level1"><h1>Planning</h1></section><section id="week-mapping" class="slide level2">
+<h2>Week mapping</h2>
+<ul>
+<li><strong>Week 3 - 6: Implementation of platform</strong></li>
+<li>Week 7: Writing user manual (3 days)</li>
+<li>Week 7: Conducting experiments (2 days)</li>
+<li>Optionally extend implementation time</li>
+</ul>
+</section></section>
+<section><section id="last-week" class="title-slide slide level1"><h1>Last week</h1></section><section id="development" class="slide level2">
+<h2>Development</h2>
+<ul>
+<li>Web configuration panel</li>
+<li>Recording gestures</li>
+<li>Gesture Templates</li>
+</ul>
+</section></section>
+<section><section id="this-week" class="title-slide slide level1"><h1>This week</h1></section><section id="development-1" class="slide level2">
+<h2>Development</h2>
+<ul>
+<li>Finish recording gestures</li>
+<li>Improving comparison logic</li>
+<li>Template management</li>
+</ul>
+</section><section id="nice-to-have" class="slide level2">
+<h2>Nice to have</h2>
+<ul>
+<li>Creating a visual representation of the gesture</li>
+<li>Trimming down recorded gestures</li>
+<li>Configurable actions</li>
+</ul>
+</section></section>
+<section><section id="demo-get-hyped" class="title-slide slide level1"><h1><a href="http://localhost:8000">Demo (Get Hyped!)</a></h1></section></section>
+<section><section id="thanks" class="title-slide slide level1"><h1>Thanks!</h1></section><section id="any-questions" class="slide level2">
+<h2>Any questions?</h2>
+<p>Slides:<br />
+<a href="https://gitlab.com/timvisee/cant-touch-this-project">gitlab.com/timvisee/cant-touch-this-project</a></p>
+<p>Project:<br />
+<a href="https://gitlab.com/timvisee/cant-touch-this">gitlab.com/timvisee/cant-touch-this</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="template/lib/js/head.min.js"></script>
+  <script src="template/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'template/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'template/plugin/zoom-js/zoom.js', async: true },
+              { src: 'template/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
