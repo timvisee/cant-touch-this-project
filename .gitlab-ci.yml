@@ -5,7 +5,7 @@ pages:
   - apt install pandoc -yqq
   script:
   - |
-    for d in pres_*/; do
+    for d in pres*/; do
       echo "Building presentation in $d..."
       cd "$d"
       make
