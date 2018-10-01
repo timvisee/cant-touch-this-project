@@ -1,0 +1,105 @@
+\documentclass[a4paper]{article}
+
+\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+
+% dimensions
+\geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
+
+% font
+\usepackage{DejaVuSans}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+% image
+\graphicspath{ {img/} }
+
+% lists
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% preamble
+\title{Can't Touch This User Manual}
+\author{Tim Visée \& Nathan Bakhuijzen}
+\date{October 2018}
+
+\begin{document}
+
+  \pagenumbering{gobble}
+  \maketitle
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{cant-touch-this}
+  \end{figure}
+  \clearpage
+
+  \section{Problem Definition}
+  \textbf{Controlling a computer or peripheral using touchless controls is
+    possible, but what motions are natural, effortless and easy to use?}
+  Questions of this nature can be answered using the Can't Touch This platform.
+  % TODO: Extend this section
+
+  \subsection{Motivation}
+  At the start of this minor, students were given a choice in the subject of the
+  research. Mister Hani introduced us to a series of subjects, of which the
+  LeapMotion project was the most interesting to us. The idea of the LeapMotion
+  was to create or extend existing software to enable people to control a
+  computer without touching any peripherals.
+
+  \subsection{Background information}
+  The events that lead up to this question came from the medical industry. When
+  surgeons perform surgeries, they often have to look through medical files, for
+  example, an X-ray scan. This is difficult, as the surgeons most likely has
+  dirty hands, and can therefore not touch any peripheral. Instead of viewing
+  the documents himself, the surgeon has assistants that help him instead.
+
+  The use of assistants is a solution to the problem, but this requires another
+  human, and personnel in the medical world is scarce. We therefore want to
+  replace these human assistants with a device that allows surgeons to control
+  the computer without touch any peripherals.
+
+  The people that are most interested in the results are software engineers,
+  surgeons and hospital managers.
+
+  %%% Goal of the manual
+  %%%% Show researchers how to use your platform 
+  %%%% Show future developers how to continue your work
+
+  % Installation Guide
+  %% Platform and OS
+  %% Other software dependencies
+  %% External resources needed to run the prototype
+  %% External resources needed to develop the prototype
+  \section{Installation Guide}
+
+  % User Instructions
+  %% Instructions to run the experiment (explained in build plan)
+  %% Aimed at non technical researchers
+  %% Include screenshots when possible
+  %% Bonus points: make a video of the instructions, upload to youtube and
+  %% include link in manual
+
+  % Requirements
+  %% Here you describe what requirements you have already gathered from the client. 
+  %% What requirements are done 
+  %% What requirements are still open 
+  %% Prioritizing of requirements (MOSCOW)
+
+  % Architecture diagram
+  %% Context view
+  %% Functional view
+
+  % Domain Model
+  %% This is where you give future developers the information they need to
+  %% continue the work. 
+  %% In the domain model you list all: 
+  %% API interfaces 
+  %% Subsystems
+
+  % Test Report
+  %% Add this section even if you did not do any formal testing on the system.  
+  %% What is the quality of the code 
+  %% What has already been tested 
+  %% What are the known bugs in the system
+\end{document}
