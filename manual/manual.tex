@@ -22,7 +22,7 @@
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % preamble
-\title{Can't Touch This User Manual}
+\title{User Manual}
 \author{Tim Visée \& Nathan Bakhuijzen}
 \date{October 2018}
 
@@ -79,34 +79,41 @@
   %% External resources needed to run the prototype
   %% External resources needed to develop the prototype
   \section{Installation Guide}
+  \subsection{Requirements}
   \begin{itemize}
     \tightlist
-    \item Windows, OSX or Linux
-    \item The Rust programming language
-    \item The LeapMotion SDK
+    \item A computer with the Windows (7+), OSX (10.7+, Lion+) or
+      Linux (kernel 2.6.18+) operating system
+    \item An installation of the LeapMotion
+      \href{https://developer.leapmotion.com/sdk/v2}{SDK}
+    \item An installation of the
+      \href{https://rust-lang.org}{Rust} programming language
     \item The physical LeapMotion device itself
   \end{itemize}
 
+  \subsection{Software Dependencies}
   The \textit{Can't Touch This} platform is written using the
-  \href{https://www.rust-lang.org/en-US/}{Rust programming language}.
-  This means that the operating system that it will run on must
-  support the Rust language. Fortunately, Rust runs on all popular operating
-  systems today. According to the
-  \href{https://forge.rust-lang.org/platform-support.html}{Rust website} the
-  following platforms are supported:
-
-  \begin{itemize}
-    \tightlist
-    \item Windows (7+)
-    \item OSX (10.7+, Lion+)
-    \item Linux (2.6.18+)
-  \end{itemize}
-
-  Additonally, the \textit{Can't Touch This} platform requires the
-  \href{https://www.leapmotion.com/}{LeapMotion}
+  \href{https://rust-lang.org}{Rust programming language}. This means that the
+  operating system that the platform will run on must support the Rust language.
+  Fortunately, Rust runs on all popular operating systems today, shown above in
+  the list of requirements. An up-to-date list of all supported versions can be
+  found on the
+  \href{https://forge.rust-lang.org/platform-support.html}{Rust website}.
+  Additonally, the \textit{Can't Touch This} platform requires the LeapMotion
   \href{https://developer.leapmotion.com/sdk/v2}{SDK} to provide all necessary
-  data. Just like the Rust programming language, the LeapMotion SDK can be
-  installed on all platforms.
+  sensor data. Just like the Rust programming language, the LeapMotion SDK can
+  be installed on all platforms.
+
+  \subsection{External resources}
+  Additional software required to run the platform consists of the following
+  items:
+
+  Again, fortunately, these are all installed with the platform itself, and
+  therefore requires no extra software.
+
+  \subsection{External development tools}
+  In order for other to continue developing the \textit{Can't Touch This}
+  platform, they will need to install the following tools:
   \clearpage
 
   % User Instructions
@@ -138,4 +145,12 @@
   %% What is the quality of the code 
   %% What has already been tested 
   %% What are the known bugs in the system
+
+  % known issues
+  \section{Known Issues}
+  \begin{itemize}
+    \tightlist
+    \item \textit{Can't Touch This} may crash upon running the release version of the
+      exectable
+  \end{itemize}
 \end{document}
