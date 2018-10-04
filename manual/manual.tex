@@ -36,48 +36,50 @@
   \end{figure}
   \clearpage
 
+  \section{Goal}
+  The purpose of this manual is twofold:
+  \begin{itemize}
+    \tightlist
+    \item To inform research how to use the platform to execute experiments and
+      conduct research
+    \item To inform future developers how to continue developing the platform
+  \end{itemize}
+
   \section{Problem Definition}
-  \textit{What physical motions are natural, effortless and easy in order to
+  \textit{What physical motions are natural, effortless and easy, in order to
     control a computer or other digital device?}
 
   Questions of this nature can be answered using the \textit{Can't Touch This}
-  platform. \textit{Can't Touch This} aim to be a general platform for
-  researchers that would like to conduct research in this area. We believe that
-  \textit{Can't Touch This} allows researchers to quickly identifty what motions
-  are effective, and which aren't. Giving researchers the opportunity to conduct
-  research improves the chance for touchless control of computers only seen
-  in futuristic movies and tv shows.
+  platform. \textit{Can't Touch This} aims to be a platform for researchers that
+  would like to conduct research in the field of touchless computer systems. We
+  believe that our platform allows researchers to build a strong foundation for
+  the future of touchless control. Giving researchers the opportunity to conduct
+  research improves the chance for touchless control of computers only seen in
+  futuristic movies and tv shows.
 
   \subsection{Motivation}
-  At the start of this minor, students were given a choice in the subject of the
-  research. Mister Hani introduced us to a series of subjects, of which the
-  LeapMotion project was the most interesting to us. The idea of the LeapMotion
-  was to create or extend existing software to enable people to control a
-  computer without touching any peripherals.
+  At the start of the KB-80 minor, students were given a choice in the subject
+  of the research. Mister Hani introduced us to a series of subjects, of which
+  the LeapMotion project was the most interesting to us. The idea of the
+  LeapMotion was to create or extend existing software to enable people to
+  control a computer without touching any peripherals, like keyboards and mice.
 
   \subsection{Background information}
-  The events that lead up to this question came from the medical industry. When
-  surgeons perform surgeries, they often have to look through medical files, for
-  example, an X-ray scan. This is difficult, as the surgeons most likely has
-  dirty hands, and can therefore not touch any computer peripheral.
-  
-  
-  Instead of this, touchless control of the computer may offer a solution.
-
-  The use of assistants is a solution to the problem, but this requires another
-  human, and personnel in the medical world is scarce. We therefore want to
-  replace these human assistants with a device that allows surgeons to control
-  the computer without touch any peripherals.
-
-  The people that are most interested in the results are software engineers,
-  surgeons and hospital managers.
+  Research in the field of touchless computer systems is motivated by the desire
+  for these systems in sterile environments. For example, surgeons often make
+  use of computer systems to aid them during their surgeries by providing
+  crucial information such as CT, MRI and X-ray scans. This is where touchless
+  computer systems come in. These systems allows surgeons on control a computer
+  without the need for physical peripherals.
   \clearpage
 
-  % Installation Guide
-  %% Platform and OS
-  %% Other software dependencies
-  %% External resources needed to run the prototype
-  %% External resources needed to develop the prototype
+  % 1. Installation guide
+  % Instructions on how to get your prototype to install and run.
+  % Checklist:
+  %   •	Platform and OS version
+  %   •	Other software dependencies
+  %   •	External resources needed to run the prototype.
+  %   •	External resources (or tools) needed to continue developing the prototype
   \section{Installation Guide}
   \subsection{Requirements}
   \begin{itemize}
@@ -105,46 +107,66 @@
   be installed on all platforms.
 
   \subsection{External resources}
-  Additional software required to run the platform consists of the following
-  items:
-
-  Again, fortunately, these are all installed with the platform itself, and
-  therefore requires no extra software.
+  To be written.
 
   \subsection{External development tools}
-  In order for other to continue developing the \textit{Can't Touch This}
-  platform, they will need to install the following tools:
+  To be written.
   \clearpage
 
-  % User Instructions
-  %% Instructions to run the experiment (explained in build plan)
-  %% Aimed at non technical researchers
-  %% Include screenshots when possible
-  %% Bonus points: make a video of the instructions, upload to youtube and
-  %% include link in manual
+  % 2. User instructions
+  % Step by step instructions on how to use the research platform to conduct research.
+  % Checklist:
+  %   •	Instructions to run the experiment (explained in build plan)
+  %   •	Aimed at non technical researchers
+  %   •	Include screenshots when possible
 
-  % Requirements
-  %% Here you describe what requirements you have already gathered from the client. 
-  %% What requirements are done 
-  %% What requirements are still open 
-  %% Prioritizing of requirements (MOSCOW)
+  % Bonus points: make a video of the instructions, upload to youtube and include link in manual
+  % Note: even if video instructions are created the manual should still have written instructions
 
-  % Architecture diagram
-  %% Context view
-  %% Functional view
 
-  % Domain Model
-  %% This is where you give future developers the information they need to
-  %% continue the work. 
-  %% In the domain model you list all: 
-  %% API interfaces 
-  %% Subsystems
+  % 3. Requirements
+  % Here you describe what requirements you have already gathered from the client.
+  % Checklist:
+  %   •	What requirements are done
+  %   •	What requirements are still open
+  %   •	Prioritizing of requirements (MOSCOW)
 
-  % Test Report
-  %% Add this section even if you did not do any formal testing on the system.  
-  %% What is the quality of the code 
-  %% What has already been tested 
-  %% What are the known bugs in the system
+
+  % 4. Software Architecture Diagram
+  % 4.1 Context view
+  % Describe the relationships, dependencies, and interactions between the system and its environment (the people, system.. and external entities with which it interacts). Your system in this view is represented by a blackbox interacting with external entities. See example in Figure 1.
+  % 4.2 Functional view
+  % Describe the system’s runtime functional elements and their responsibility, interfaces and primary int
+
+  % Figure 1. Example of a context view
+
+  % methodology:
+  %   •	Represent each subcomponent of the system with a box in the figure. 
+  %   •	Link the system subcomponents with connectors. These connectors define the interaction between the elements that use it. 
+  %   •	Under the figure explain each subcomponent, and give:
+  %   •	Inputs
+  %   •	Outputs
+  %   •	What functionality is available
+  %   •	How to invoke each functionality (commands, syntax, …etc).
+  \section{Architecture Diagrams}
+  \begin{figure}[h]
+    \caption{Context Diagram}
+    \centering
+    \includegraphics[width=\linewidth]{context-diagram}
+  \end{figure}
+  \clearpage
+
+  % 5. Domain model
+  % In the domain model you list all:
+  %   •	API interfaces
+  %   •	Subsystems
+
+  % 6. Test report
+  % Add this section even if you did not do any formal testing on the system. 
+  % Checklist:
+  %   •	What is the quality of the code
+  %   •	What has already been tested
+  %   •	What are the known bugs in the system
 
   % known issues
   \section{Known Issues}
