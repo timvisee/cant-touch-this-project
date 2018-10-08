@@ -133,6 +133,22 @@
   how to setup the platform so that you can conduct the \textit{experiments}
   found later in this manual.
   % TODO: Write detailed instructions on how to run the experiments
+
+  - Start up the computer
+  - Attach the LeapMotion device using the provided USB cable
+  - (install the LeapMotion SDK)
+  - Start the LeapMotion program provided by the LeapMotion SDK to start
+    tracking
+  - (Install the Rust programming language)
+  - Download/Install the Can't Touch This platform
+  - Start up the Can't Touch This platform
+  - Start up an internet browser and navigate to http://localhost:8000/
+  - Click on 'Start recording' and make a motion above the LeapMotion sensor
+  - Once you've made the motion you wanted, click on stop recording and save the
+    gesture
+  - Bind the motion you've just made to one of the predefined actions
+  - Go into recognition mode and try to see if the computer executes the action
+    you've bound your motion to
   \clearpage
 
   % 3. Requirements
@@ -208,15 +224,15 @@
   %   •	API interfaces
   %   •	Subsystems
 
-  % 6. Test report
-  % Add this section even if you did not do any formal testing on the system. 
-  % Checklist:
-  %   •	What is the quality of the code
-  %   •	What has already been tested
-  %   •	What are the known bugs in the system
+  \section{Test Report}
+  % •	What is the quality of the code
 
-  % known issues
-  \section{Known Issues}
+  \subsection{Code Quality}
+
+  % •	What has already been tested
+  \subsection{Existing Tests}
+
+  \subsection{Known Bugs}
   \begin{itemize}
     \tightlist
     \item \textit{Can't Touch This} may crash upon running the release version
