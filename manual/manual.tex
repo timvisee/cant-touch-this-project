@@ -119,7 +119,14 @@
 
   % Bonus points: make a video of the instructions, upload to youtube and include link in manual
   % Note: even if video instructions are created the manual should still have written instructions
-
+  \section{User Instructions}
+  This chapter gives users instructions on how to use the \textit{Can't Touch
+    This} platform. It assumes that the user has followed the instructions found
+  in the \textit{Installation} chapter. The following instructions will detail
+  how to setup the platform so that you can conduct the \textit{experiments}
+  found later in this manual.
+  % TODO: Write detailed instructions on how to run the experiments
+  \clearpage
 
   % 3. Requirements
   % Here you describe what requirements you have already gathered from the client.
@@ -151,6 +158,37 @@
     \centering
     \includegraphics[width=\linewidth]{context-diagram}
   \end{figure}
+  In this diagram, the \textit{Can't Touch This} platform displayed globally. It
+  Shows three main objects:
+  \begin{itemize}
+    \tightlist
+    \item The user
+    \item The LeapMotion device
+    \item The Can't Touch This platform
+  \end{itemize}
+  The user attaches the LeapMotion device to the computer, installs the platform
+  and moves it's hand above the sensor to conduct an experiment. The LeapMotion
+  device captures the data of the hand, and passes it on through the LeapMotion
+  SDK, to the leap-rs wrapper. This leap-rs wrapper maps all functions made
+  available through the LeapMotion SDK to the Rust programming language.
+  Normally, a platform like \textit{Can't Touch This} would have to be
+  programmed using the C programming language, as this is the language the SDK
+  is written in.
+
+  The leap-rs wrapper enables the SDK functionality in our platform, which we
+  use in the Sensor Controller. The Sensor controller is our gateway of
+  information, of our bits, bytes and coordinates of the hand scanned by the
+  LeapMotion device. The Sensor controller then passes this data on to the
+  Fragment Manager, which records all data and converts it into Points,
+  Rotational Points (known as RotPoints,) and Traces of both kind. It even
+  improves the recorded points in the trace through a method called sampling.
+  Sampling is the act of ... % TODO: Ask Tim for an explanation
+
+  After this conversion, the Gesture Controller receives the transformed data
+  and compares the existing gestures, stored in the Template Manager, with the
+  current gesture.
+  \clearpage
+
   \begin{figure}[h]
     \caption{Context Diagram}
     \centering
