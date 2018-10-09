@@ -134,21 +134,40 @@
   found later in this manual.
   % TODO: Write detailed instructions on how to run the experiments
 
-  - Start up the computer
-  - Attach the LeapMotion device using the provided USB cable
-  - (install the LeapMotion SDK)
-  - Start the LeapMotion program provided by the LeapMotion SDK to start
-    tracking
-  - (Install the Rust programming language)
-  - Download/Install the Can't Touch This platform
-  - Start up the Can't Touch This platform
-  - Start up an internet browser and navigate to http://localhost:8000/
-  - Click on 'Start recording' and make a motion above the LeapMotion sensor
-  - Once you've made the motion you wanted, click on stop recording and save the
-    gesture
-  - Bind the motion you've just made to one of the predefined actions
-  - Go into recognition mode and try to see if the computer executes the action
-    you've bound your motion to
+  \subsection{Installation}
+  \begin{itemize}
+    \tightlist
+    \item Download the following software for your specific platform and install
+      the software using the provided installers:
+      \begin{itemize}
+        \tightlist
+        \item \href{https://developer.leapmotion.com/sdk/v2}{The LeapMotion SDK}
+        \item \href{https://rust-lang.org}{The Rust programming language}
+        \item \href{https://gitlab.com/timvisee/cant-touch-this}{Can't Touch This}
+      \end{itemize}
+  \end{itemize}
+
+  \subsection{Usage}
+  \begin{itemize}
+    \tightlist
+    \item Attach the LeapMotion device using it's provided USB cable
+    \item Start the LeapMotion tracking program provided by the LeapMotion SDK
+    \item Start the \textit{Can't Touch This} platform
+    \item Start up an internetbrowser (Chrome, Firefox, Safari, etc.)
+    \item Navigate to \url{http://localhost:8000}
+    \item Click the \textit{Start Recording} button
+    \item Move your physical hand above the LeapMotion device to make a desired
+      gesture
+    \item Once you are done making the gesture, click on \textit{Stop Recording}
+    \item The recorded gesture you've just made should be visibly represented on
+      the canvas
+    \item Save the gesture using the \textit{Save Recording} button and bind the
+      gesture to a predefined action
+    \item Click on the \textit{Recognition Mode} button and make one of the
+      gestures you've made beforehand
+    \item Watch as the computer will execute the action you've bound your
+      gesture to
+  \end{itemize}
   \clearpage
 
   % 3. Requirements
