@@ -52,7 +52,7 @@
     \item To inform future developers how to continue developing the platform
   \end{itemize}
 
-  \section{Problem Definition}
+  \subsection{Problem Definition}
   \textit{What physical motions are natural, effortless and easy, in order to
     control a computer or other digital device?}
 
@@ -81,7 +81,6 @@
   \clearpage
 
   \section{Installation Guide}
-  % •	Platform and OS version
   \subsection{Requirements}
   \begin{itemize}
     \tightlist
@@ -90,11 +89,10 @@
     \item An installation of the LeapMotion
       \href{https://developer.leapmotion.com/sdk/v2}{SDK}
     \item An installation of the
-      \href{https://rust-lang.org}{Rust} programming language
+      \href{https://rustup.rs}{Rust} programming language
     \item The physical LeapMotion device itself
   \end{itemize}
 
-  % •	Other software dependencies
   \subsection{Software Dependencies}
   The \textit{Can't Touch This} platform is written using the
   \href{https://rust-lang.org}{Rust programming language}. This means that the
@@ -118,14 +116,17 @@
   \clearpage
 
   % 2. User instructions
-  % Step by step instructions on how to use the research platform to conduct research.
+  % Step by step instructions on how to use the research platform to conduct
+  % research.
   % Checklist:
   %   •	Instructions to run the experiment (explained in build plan)
   %   •	Aimed at non technical researchers
   %   •	Include screenshots when possible
 
-  % Bonus points: make a video of the instructions, upload to youtube and include link in manual
-  % Note: even if video instructions are created the manual should still have written instructions
+  % Bonus points: make a video of the instructions, upload to youtube and
+  % include link in manual
+  % Note: even if video instructions are created the manual should still have
+  % written instructions
   \section{User Instructions}
   This chapter gives users instructions on how to use the \textit{Can't Touch
     This} platform. It assumes that the user has followed the instructions found
@@ -170,25 +171,67 @@
   \end{itemize}
   \clearpage
 
-  % 3. Requirements
-  % Here you describe what requirements you have already gathered from the client.
-  % Checklist:
-  %   •	What requirements are done
-  %   •	What requirements are still open
-  %   •	Prioritizing of requirements (MOSCOW)
+  \section{Requirements}
+  This chapter details the list of open and finished requirements of the
+  \textit{Can't Touch This} platform. The prioritization of this list is not
+  according to the MoSCoW method. This is because this exclusive project
+  required us to figure out what to do on the fly, rather than planning
+  everything out beforehand.
 
+  Requirements that are satisfied: 
+  \begin{itemize}
+    \tightlist
+    \item An Operating System independant platform
+    \item A web interface for users
+    \item A list of predefined gestures
+    \item The ability to record and store new gestures
+    \item The ability to use fingers of both hands in a gesture
+  \end{itemize}
+  By using the Rust programming language we inherently met the Operating System
+  requirement. This saved us a lot of work and allowed us to focus on the
+  platform's functionality. Similarly, we chose to use a web interface for the
+  interaction between user and system. This also saved us a substantial
+  workload.
+
+  Requirements that are still open:
+  \begin{itemize}
+    \tightlist
+    \item The ability to bind actions to predefined or recorded gestures
+    \item The ability to combine multiple sensors
+  \end{itemize}
+  The ability to bind actions to gestures is unfinished because of two reasons.
+  The first reason is a lack of time. Writing \textit{Can't Touch This} from
+  scratch is a large task, and it consumed most of our development time. Second,
+  executing actions based on gestures was not the main goal of the platform. The
+  goal of the platform is to allow researchers to conduct experiments in the
+  field of touchless computer systems. This research is not aided by the ability
+  to execute actions based on gestures, but rather on if a gesture is
+  recognized at all. It is because of this that we decided to give visual
+  feedback in the web interface instead.
+
+  At the start of the project we wanted to combine multiple LeapMotion sensors
+  in order to achieve increased accuracy. We looked into this, but we found out
+  that this was impossible, due to the proprietary nature of the LeapMotion
+  sensor. Several websites pointed out something like this would be better
+  suited for the developers of the LeapMotion.
+  \clearpage
 
   % 4. Software Architecture Diagram
   % 4.1 Context view
-  % Describe the relationships, dependencies, and interactions between the system and its environment (the people, system.. and external entities with which it interacts). Your system in this view is represented by a blackbox interacting with external entities. See example in Figure 1.
+  % Describe the relationships, dependencies, and interactions between the
+  % system and its environment (the people, system.. and external entities with
+  % which it interacts). Your system in this view is represented by a blackbox
+  % interacting with external entities. See example in Figure 1.
   % 4.2 Functional view
-  % Describe the system’s runtime functional elements and their responsibility, interfaces and primary int
+  % Describe the system’s runtime functional elements and their responsibility,
+  % interfaces and primary int
 
   % Figure 1. Example of a context view
 
   % methodology:
   %   •	Represent each subcomponent of the system with a box in the figure. 
-  %   •	Link the system subcomponents with connectors. These connectors define the interaction between the elements that use it. 
+  %   •	Link the system subcomponents with connectors. These connectors define
+  %     the interaction between the elements that use it. 
   %   •	Under the figure explain each subcomponent, and give:
   %   •	Inputs
   %   •	Outputs
