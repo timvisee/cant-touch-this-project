@@ -8,6 +8,7 @@ Slides:
 - [`pres-w3`](https://timvisee.gitlab.io/cant-touch-this-project/pres-w3)
 - [`pres-w4`](https://timvisee.gitlab.io/cant-touch-this-project/pres-w4)
 - [`pres-w5`](https://timvisee.gitlab.io/cant-touch-this-project/pres-w5)
+- [`pres-w6`](https://timvisee.gitlab.io/cant-touch-this-project/pres-w6)
 
 Slides in this repository are made with [reveal.js][revealjs], based on markdown
 files.
