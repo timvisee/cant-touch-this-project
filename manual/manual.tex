@@ -43,14 +43,14 @@
 \geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
 
 % hyperlinks
-\hypersetup{
+\hypersetup{%
   colorlinks=true,
   linkcolor=blue,
   urlcolor=cyan,
 }
 
 % image
-\graphicspath{ {img/} }
+\graphicspath{{img/}}
 
 % lists
 \providecommand{\tightlist}{%
@@ -74,7 +74,7 @@
   \section{Goal}
   The purpose of this manual is twofold:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item To inform research how to use the platform to execute experiments and
       conduct research
     \item To inform future developers how to continue developing the platform
@@ -111,7 +111,7 @@
   \section{Installation Guide}
   \subsection{Requirements}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item A computer with the Windows (7+), OSX (10.7+, Lion+) or
       Linux (kernel 2.6.18+) operating system
     \item An installation of the LeapMotion
@@ -168,7 +168,7 @@
 
   \subsection{Usage}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item Attach the LeapMotion device using it's provided USB cable
     \item Start the LeapMotion tracking program provided by the LeapMotion SDK
     \item Start the \textit{Can't Touch This} platform by running the provided
@@ -199,7 +199,7 @@
 
   Requirements that are satisfied: 
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item An Operating System independant platform
     \item A web interface for users
     \item A list of predefined gestures
@@ -214,7 +214,7 @@
 
   Requirements that are still open:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item The ability to bind actions to predefined or recorded gestures
     \item The ability to combine multiple sensors
   \end{itemize}
@@ -265,7 +265,7 @@
   In this diagram, the \textit{Can't Touch This} platform displayed globally. It
   Shows three main objects:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item The user
     \item The LeapMotion device
     \item The Can't Touch This platform
@@ -284,7 +284,8 @@
   information, of our bits and bytes. The Sensor controller passes this data on
   to the Fragment Manager, which records all data and converts it into Points,
   Rotational Points (\textit{RotPoints}) and Traces of both kind. It even
-  improves the recorded points in the trace by sampling them. Sampling is ...
+  improves the recorded points in the trace by sampling them. Sampling is
+  \ldots{}
   % TODO: Let Tim write this section
 
   After the conversion and sampling, the Gesture Controller receives the data
@@ -349,7 +350,7 @@
 
   \subsection{Known Bugs}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item \textit{Can't Touch This} may crash upon running the release version
       of the exectable
     \item On macOS, the LeapMotion device may never give data to begin with
