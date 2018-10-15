@@ -13,22 +13,18 @@ slideNumber: true
 history: true
 ---
 
-# Planning
+# Continue work
 
-## Week mapping
-* **Week 3 - 6: Implementation of platform**
-* Week 7: Writing user manual (3 days)
-* Week 7: Conducting experiments (2 days)
-* Optionally extend implementation time
+## TODO
+* Fix gesture recording
+* Complete developer manual
+* Conduct experiments
 
-# Last week
 
-## Development
-* Web configuration panel
-* Recording gestures
-* Gesture Templates
 
-# This week
+
+
+# Requirements
 
 ## Development
 * Finish recording gestures
@@ -39,6 +35,10 @@ history: true
 * Creating a visual representation of the gesture
 * Trimming down recorded gestures
 * Configurable actions
+
+
+
+
 
 # Demo
 
