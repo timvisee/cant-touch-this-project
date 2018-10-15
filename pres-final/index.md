@@ -39,12 +39,28 @@ history: true
 * Touchless control {easier, faster} vs traditional controls?
 * Touchless control sophisticated enough?
 
-## Answers
-* No, but visual feedback may decrease the learning time
-* For now, no. It is not faster for experienced users anyway
-* For now, no. The platform can support all gestures in the future
-* No, the SDK is proprietary. Extension is impossible
-* Yes, the sensors gives data of all fingers
+## Multiple sensors
+* Possible to combine multiple sensors?
+
+No, the SDK is proprietary. Extension is not possible.
+But other sensors can be used.
+
+## Multiple fingers
+* Possible to use multiple fingers?
+
+Yes, the sensors gives data of all fingers.
+Implementation defines what is possible.
+
+## Learning curve
+* Learning curve of touchless control steep?
+
+Unanswered. Visual feedback probably decreases the learning time.
+
+## {easier,faster} / Sophisticated
+**Unanswered:**
+
+* Touchless control `{easier,faster}` vs traditional controls?
+* Touchless control sophisticated enough?
 
 # Demo
 
