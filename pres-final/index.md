@@ -22,10 +22,13 @@ history: true
 
 # Requirements
 
-## Requirements
-* Build a gesture recognition system
-* Allow to define custom gestures
-* Control computer with touchless interaction
+## Requirements assessment
+* ✔️ Build a gesture recognition system
+* ✔️ Allow to define custom gestures
+* ✔️ Web interface for configurability
+* ❌ Control computer with touchless interaction
+* ❌ Use both hands
+* ✔️ OS independent
 
 # Questions
 
