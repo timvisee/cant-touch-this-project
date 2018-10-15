@@ -40,7 +40,11 @@ history: true
 * Is it possible to use multiple fingers in one gesture?
 
 ## Answers
-* TODO: some answers here
+* No, but visual feedback may decrease the learning time
+* For now, no. It is not faster for experienced users anyway
+* For now, no. The platform can support all gestures in the future
+* No, the SDK is proprietary. Extension is impossible
+* Yes, the sensors gives data of all fingers
 
 # Demo
 
