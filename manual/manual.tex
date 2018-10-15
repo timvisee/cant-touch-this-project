@@ -4,7 +4,7 @@
 \usepackage{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{listings}
+\usepackage{listings, listings-rust}
 \usepackage{graphicx}
 \usepackage[x11names, rgb, html]{xcolor}
 
@@ -37,7 +37,6 @@
     showtabs=false,
     tabsize=4
 }
-
 \lstset{style=codestyle}
 
 % dimensions
@@ -56,19 +55,6 @@
 % lists
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Listings style for Docker
-\lstdefinelanguage{rust}{%
-  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
-  % keywordstyle=\color{blue}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{\#},
-  % commentstyle=\color{purple}\ttfamily,
-  % stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]" % chktex 18
-}
 
 % preamble
 \title{User Manual}
@@ -335,7 +321,7 @@
   we also have set up a few tests where we cover the comparison of traces, such
   as straight lines and curves. Below you can see the test code:
   \lstinputlisting[
-    language=rust,
+    language=Rust,
     caption={%
       Straight line unit test
     },
@@ -346,12 +332,12 @@
 
   The \verb_PointTrace_ on line 3 contains three points that travel the same
   distance at every step. The platform recognizes this as a straight line, as
-  there is no change in the trajectory. the variable \verb_expected_ then gets
+  there is no change in the trajectory. The variable \verb_expected_ then gets
   assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of 0
   degrees. This is correct, as the line drawn on line 3 is straight.
 
   \lstinputlisting[
-    language=rust,
+    language=Rust,
     caption={%
       Corner unit test
     },
