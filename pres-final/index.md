@@ -20,25 +20,20 @@ history: true
 * Complete developer manual
 * Conduct experiments
 
-
-
-
-
 # Requirements
 
-## Development
-* Finish recording gestures
-* Improving comparison logic
-* Template management
+## Requirements
+* Build a gesture recognition system
+* Allow to define custom gestures
+* Control computer with touchless interaction
 
-## Nice to have
-* Creating a visual representation of the gesture
-* Trimming down recorded gestures
-* Configurable actions
+# Questions
 
+## Questions
+* TODO: some questions here
 
-
-
+## Answers
+* TODO: some answers here
 
 # Demo
 
