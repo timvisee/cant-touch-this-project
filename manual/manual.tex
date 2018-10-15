@@ -4,7 +4,7 @@
 \usepackage{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{listings}
+\usepackage{listings, listings-rust}
 \usepackage{graphicx}
 \usepackage[x11names, rgb, html]{xcolor}
 
@@ -37,38 +37,24 @@
     showtabs=false,
     tabsize=4
 }
-
 \lstset{style=codestyle}
 
 % dimensions
 \geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
 
 % hyperlinks
-\hypersetup{
+\hypersetup{%
   colorlinks=true,
   linkcolor=blue,
   urlcolor=cyan,
 }
 
 % image
-\graphicspath{ {img/} }
+\graphicspath{{img/}}
 
 % lists
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Listings style for Docker
-\lstdefinelanguage{rust}{%
-  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
-  % keywordstyle=\color{blue}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{\#},
-  % commentstyle=\color{purple}\ttfamily,
-  % stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]" % chktex 18
-}
 
 % preamble
 \title{User Manual}
@@ -88,7 +74,7 @@
   \section{Goal}
   The purpose of this manual is twofold:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item To inform research how to use the platform to execute experiments and
       conduct research
     \item To inform future developers how to continue developing the platform
@@ -125,7 +111,7 @@
   \section{Installation Guide}
   \subsection{Requirements}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item A computer with the Windows (7+), OSX (10.7+, Lion+) or
       Linux (kernel 2.6.18+) operating system
     \item An installation of the LeapMotion
@@ -182,7 +168,7 @@
 
   \subsection{Usage}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item Attach the LeapMotion device using it's provided USB cable
     \item Start the LeapMotion tracking program provided by the LeapMotion SDK
     \item Start the \textit{Can't Touch This} platform by running the provided
@@ -214,7 +200,7 @@
 
   These requirements have been satisfied:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item Operating System independant
     \item Web interface for user interaction
     \item Predefined gestures
@@ -229,7 +215,7 @@
 
   These requirements are left unsatisfied:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item Gesture bound actions
     \item Combining multiple sensors
   \end{itemize}
@@ -279,7 +265,7 @@
   In this diagram, the \textit{Can't Touch This} platform displayed globally. It
   Shows three main objects:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item The user
     \item The LeapMotion device
     \item The Can't Touch This platform
@@ -298,7 +284,8 @@
   information, of our bits and bytes. The Sensor controller passes this data on
   to the Fragment Manager, which records all data and converts it into Points,
   Rotational Points (\textit{RotPoints}) and Traces of both kind. It even
-  improves the recorded points in the trace by sampling them. Sampling is ...
+  improves the recorded points in the trace by sampling them. Sampling is
+  \ldots{}
   % TODO: Let Tim write this section
 
   After the conversion and sampling, the Gesture Controller receives the data
@@ -335,7 +322,7 @@
   we also have set up a few tests where we cover the comparison of traces, such
   as straight lines and curves. Below you can see the test code:
   \lstinputlisting[
-    language=rust,
+    language=Rust,
     caption={%
       Straight line unit test
     },
@@ -346,12 +333,12 @@
 
   The \verb_PointTrace_ on line 3 contains three points that travel the same
   distance at every step. The platform recognizes this as a straight line, as
-  there is no change in the trajectory. the variable \verb_expected_ then gets
+  there is no change in the trajectory. The variable \verb_expected_ then gets
   assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of 0
   degrees. This is correct, as the line drawn on line 3 is straight.
 
   \lstinputlisting[
-    language=rust,
+    language=Rust,
     caption={%
       Corner unit test
     },
@@ -363,7 +350,7 @@
 
   \subsection{Known Bugs}
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item \textit{Can't Touch This} may crash upon running the release version
       of the exectable
     \item On macOS, the LeapMotion device may never give data to begin with
