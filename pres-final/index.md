@@ -18,17 +18,17 @@ history: true
 ## TODO
 * Fix gesture recording
 * Complete developer manual
-* Conduct experiments
+* Complete experiments
 
 # Requirements
 
 ## Requirements assessment
-* ✔️ Build a gesture recognition system
-* ✔️ Allow to define custom gestures
-* ✔️ Web interface for configurability
-* ❌ Control computer with touchless interaction
-* ❌ Use both hands
-* ✔️ OS independent
+✔️ Build a gesture recognition system  
+✔️ Allow to define custom gestures  
+✔️ Web interface for configurability  
+❌ Control computer with touchless interaction  
+❌ Use both hands  
+✔️ OS independent  
 
 # Questions
 
