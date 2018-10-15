@@ -30,7 +30,11 @@ history: true
 # Questions
 
 ## Questions
-* TODO: some questions here
+* Is the learning curve of touchless control steep?
+* Is touchless control {easier, faster} than traditional controls?
+* Is touchless control sophisticated enough to control a computer?
+* Is it possible to combine multiple sensors?
+* Is it possible to use multiple fingers in one gesture?
 
 ## Answers
 * TODO: some answers here
