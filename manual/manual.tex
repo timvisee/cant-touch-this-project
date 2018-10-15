@@ -1,5 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[dutch]{babel}
+\usepackage{color}
 \usepackage{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
@@ -7,56 +8,40 @@
 \usepackage{graphicx}
 \usepackage[x11names, rgb, html]{xcolor}
 
-% code colorscheme
-\definecolor{sbase03}{HTML}{002B36}
-\definecolor{sbase02}{HTML}{073642}
-\definecolor{sbase01}{HTML}{586E75}
-\definecolor{sbase00}{HTML}{657B83}
-\definecolor{sbase0}{HTML}{839496}
-\definecolor{sbase1}{HTML}{93A1A1}
-\definecolor{sbase2}{HTML}{EEE8D5}
-\definecolor{sbase3}{HTML}{FDF6E3}
-\definecolor{syellow}{HTML}{B58900}
-\definecolor{sorange}{HTML}{CB4B16}
-\definecolor{sred}{HTML}{DC322F}
-\definecolor{smagenta}{HTML}{D33682}
-\definecolor{sviolet}{HTML}{6C71C4}
-\definecolor{sblue}{HTML}{268BD2}
-\definecolor{scyan}{HTML}{2AA198}
-\definecolor{sgreen}{HTML}{859900}
-
-\lstset{
-    % How/what to match
-    sensitive=true,
-    % Border (above and below)
-    frame=lines,
-    % Extra margin on line (align with paragraph)
-    xleftmargin=\parindent,
-    % Put extra space under caption
-    belowcaptionskip=1\baselineskip,
-    % Colors
-    backgroundcolor=\color{sbase03},
-    basicstyle=\color{sbase00}\ttfamily,
-    keywordstyle=\color{scyan},
-    commentstyle=\color{sbase1},
-    stringstyle=\color{sblue},
-    numberstyle=\color{sviolet},
-    identifierstyle=\color{sbase00},
-    %identifierstyle=
-    % Break long lines into multiple lines?
-    breaklines=true,
-    % Show a character for spaces?
-    showstringspaces=false,
-    tabsize=2
-}
-
-% dimensions
-\geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
-
 % font
 \usepackage{DejaVuSans}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
+
+% Define listing code styles
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{codestyle}{%
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+
+\lstset{style=codestyle}
+
+% dimensions
+\geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
 
 % hyperlinks
 \hypersetup{
@@ -71,6 +56,19 @@
 % lists
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Listings style for Docker
+\lstdefinelanguage{rust}{%
+  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
+  % keywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  % commentstyle=\color{purple}\ttfamily,
+  % stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]" % chktex 18
+}
 
 % preamble
 \title{User Manual}
@@ -336,21 +334,13 @@
   as the conversion of a \textit{Point} to a \textit{PointTrace} and more. We
   we also have set up a few tests where we cover the comparison of traces, such
   as straight lines and curves. Below you can see the test code:
+  \lstinputlisting[
+    language=rust,
+    caption={%
+      Straight line unit test
+    },
+  ]{code/straight.rs}
 
-  \begin{lstlisting}{python}
-#[test]
-fn straight() {
-    let points = PointTrace::new(vec![
-        Point3::new(0.0, 0.0, 0.0),
-        Point3::new(1.0, 1.0, 0.0),
-        Point3::new(5.0, 5.0, 0.0),
-    ]);
-
-    let expected = RotTrace::new(vec![RotPoint::new(0f64, 2f64.sqrt())]);
-
-    assert_eq!(points.to_rot_trace(false), expected);
-}
-  \end{lstlisting}
   This unit test creates \verb_points_, a trace of \verb_Point3_'s, and compares
   it to \verb_expected_, a \verb_RotTrace_.
 
@@ -360,26 +350,12 @@ fn straight() {
   assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of 0
   degrees. This is correct, as the line drawn on line 3 is straight.
 
-  \begin{lstlisting}
-#[test]
-fn corner() {
-    let points = PointTrace::new(vec![
-        Point3::new(0.0, 0.0, 0.0),
-        Point3::new(0.0, 5.0, 0.0),
-        Point3::new(5.0, 5.0, 0.0),
-        Point3::new(5.0, 0.0, 0.0),
-        Point3::new(0.0, 0.0, 0.0),
-    ]);
-
-    let expected = RotTrace::new(vec![RotPoint::from_degrees(-90.0, 5.0); 3]);
-
-    assert_eq!(points.to_rot_trace(false), expected);
-    assert_eq!(
-        points.to_last_rot_point(),
-        Some(RotPoint::from_degrees(-90.0, 5.0))
-    );
-}
-  \end{lstlisting}
+  \lstinputlisting[
+    language=rust,
+    caption={%
+      Corner unit test
+    },
+  ]{code/corner.rs}
   The \verb_corner_ test is a little more complicated than the \verb_straight_
   unit test. It creates a \verb_PointTrace_ with points that represent a 2D
   square. The expected RotTrace then contains three \verb_RotPoint_'s of -90
