@@ -1,0 +1,186 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.6.25)  16 OCT 2018 15:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**manual
+(/usr/share/texmf-site/tex/xmltex/base/manual.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.10> and hyphenation patterns for 29 language(s) loaded.
+(/usr/share/texmf-site/tex/xmltex/base/xmltex.tex
+xmltex version: 2002/06/25 v1.9 (Exp)
+\XML@attribute@toks=\toks14
+\XML@ns@count=\count79
+\XML@catalogue=\toks15
+\XMLgrabtoks=\toks16
+
+Encoding = utf-8 (/usr/share/texmf-site/tex/xmltex/base/xmltex.cfg)
+
+No File: manual.cfg (/usr/share/texmf-site/tex/xmltex/base/manual.xml
+(/usr/share/texmf-site/tex/xmltex/base/tei.xmt
+\SCOUNT=\count80
+)
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+No file manual.aux.
+\openout1 = `manual.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 68.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 68.
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 68.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+
+No file manual.toc.
+\tf@toc=\write3
+\openout3 = `manual.toc'.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 90.
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 103
+.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 103.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 103.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 151.
+
+
+(/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 151.
+ [2] [3]
+LaTeX Font Info:    Try loading font information for OML+cmtt on input line 229
+.
+LaTeX Font Info:    No file OMLcmtt.fd. on input line 229.
+
+
+LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textless' on input line 229.
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
+[4] [5] [6]
+Overfull \hbox (29.60902pt too wide) in paragraph at lines 422--425
+[]\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 XMLnamespaceattribute \OMS/cmsy/m/n/10 f\O
+T1/cmr/m/it/10 prefix\OMS/cmsy/m/n/10 gf\OT1/cmr/m/it/10 attribute-qname\OMS/cm
+sy/m/n/10 g f\OT1/cmr/m/it/10 command-name\OMS/cmsy/m/n/10 gf\OT1/cmr/m/it/10 d
+efault\OMS/cmsy/m/n/10 g 
+ []
+
+[7] [8]
+Overfull \hbox (15.99695pt too wide) in paragraph at lines 522--530
+\OT1/cmr/m/n/10 (rather than L[]T[]X) syn-tax toc files, it will need an ana-lo
+gue of \OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 contentsline
+ []
+
+
+Overfull \hbox (228.16463pt too wide) in paragraph at lines 522--530
+\OT1/cmr/m/n/10 the xml-tex pre-fix is de-clared on this or a par-ent el-e-ment
+ to be \OT1/cmtt/m/n/10 xmlns:xmltex="http://www.dcarlisle.demon.co.uk/xmltex"\
+OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (22.41507pt too wide) in paragraph at lines 533--541
+\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 NAMESPACE\OT1/cmr/m/n/10 ). For in-stance if
+ you put \OML/cmtt/m/n/10 <\OT1/cmtt/m/n/10 clearpage xmlns="/my/tex/tweak"/\OM
+L/cmtt/m/n/10 >
+ []
+
+[9] [10] [11]
+Overfull \hbox (46.77509pt too wide) in paragraph at lines 722--723
+[] \OML/cmtt/m/n/10 <\OT1/cmtt/m/n/10 !ENTITY lppl SYSTEM "http://www.latex-pro
+ject.org/lppl.txt"
+ []
+
+[12] [13] (./manual.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed.Rerun to get cross-references right.
+
+ ) ) ) 
+Here is how much of TeX's memory you used:
+ 1057 strings out of 494356
+ 10054 string characters out of 6166294
+ 64468 words of memory out of 5000000
+ 4434 multiletter control sequences out of 15000+600000
+ 9669 words of font info for 35 fonts, out of 8000000 for 9000
+ 350 hyphenation exceptions out of 8191
+ 32i,6n,23p,218b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmtt8.pfb>
+Output written on manual.pdf (13 pages, 199616 bytes).
+PDF statistics:
+ 107 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
