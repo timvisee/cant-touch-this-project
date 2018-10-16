@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[x11names, rgb, html]{xcolor}
+
+% dimensions
+\geometry{left=3cm, top=3cm, right=3cm, bottom=3cm}
+
+% font
+\usepackage{DejaVuSans}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+% hyperlinks
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan,
+}
+
+% image
+\graphicspath{ {img/} }
+
+% lists
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% preamble
+\title{Experiments}
+\author{Tim Visée \& Nathan Bakhuijzen}
+\date{October 2018}
+
+\begin{document}
+
+  \pagenumbering{gobble}
+  \maketitle
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{cant-touch-this}
+  \end{figure}
+  \clearpage
+
+  \section{List of experiments}
+  \begin{itemize}
+    \tightlist
+    \item Asd
+  \end{itemize}
+
+\end{document}
