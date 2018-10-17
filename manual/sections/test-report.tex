@@ -1,0 +1,60 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+  \section{Test Report}
+  \subsection{Code Quality} % •	What is the quality of the code
+  \subsection{Existing Tests} % •	What has already been tested
+  The platform currently has a few unit tests that cover basic operations, such
+  as the conversion of a \verb_Point_ to a \verb_PointTrace_, and more. We also
+  have set up a few tests to cover the comparison of traces, such as straight
+  lines and curves. Below you can see the a unit test for a straight line code:
+  \lstinputlisting[
+    language=Rust,
+    caption={%
+      Straight line unit test
+    },
+  ]{code/straight.rs}
+
+  This unit test creates \verb_points_, a trace of \verb_Point3_'s, and compares
+  it to \verb_expected_, a \verb_RotTrace_.
+
+  The \verb_PointTrace_ on line 3 contains three points that travel the same
+  distance at every step. The platform recognizes this as a straight line, as
+  there is no change in the trajectory. The variable \verb_expected_ then gets
+  assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of 0
+  degrees. This is correct, as the line drawn on line 3 is straight.
+
+  \lstinputlisting[
+    language=Rust,
+    caption={%
+      Corner unit test
+    },
+  ]{code/corner.rs}
+  The \verb_corner_ test is a little more complicated than the \verb_straight_
+  unit test. It creates a \verb_PointTrace_ with points that represent a 2D
+  square. This motion first moves to a point, 5 units onto the \verb_y_ axis.
+  After moving on this axis, it moves 5 units on the \verb_x_ axis. It then
+  concludes the motion by moving back 5 units on the \verb_y_ and \verb_x_ axis,
+  respectively.
+
+  The \verb_RotTrace_ on line 11 contains three \verb_RotPoint_'s of \verb_-90_
+  degrees. This is because a \verb_RotPoint_ calculates itself based on three
+  \verb_Point_'s. In the case of this unit test, it takes three collections of
+  three \verb_Points_: \verb_1-3_, \verb_2-4_ and \verb_3-5_. For each
+  collection, it calculates 2 angles: \verb_1-2_ and \verb_2-3_. It then
+  compares the difference between these angles, and that will be the
+  \verb_RotPoint_ for those three points. This will produce three
+  \verb_RotPoint_'s of \verb_-90_ degrees.
+
+  \subsection{Known Bugs}
+  \begin{itemize}
+    \tightlist{}
+    \item \textit{Can't Touch This} may crash upon running the release version
+      of the exectable
+    \item On macOS, the LeapMotion device may never give data to begin with
+    \item On macOS, the LeapMotion device may stop recording data randomly
+    \item On macOS, the application may not run well when minimalizing the
+      backend application
+  \end{itemize}
+\end{document}

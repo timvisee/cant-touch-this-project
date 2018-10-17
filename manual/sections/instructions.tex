@@ -1,0 +1,48 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+  \section{User Instructions}
+  This chapter gives users instructions on how to use the \textit{Can't Touch
+    This} platform. It assumes that the user has followed the instructions found
+  in the \textit{Installation} chapter. The following instructions will detail
+  how to setup the platform so that you can conduct the \textit{experiments}
+  found later in this manual.
+  % Step by step instructions on how to use the research platform to conduct
+  % research.
+  % Checklist:
+  %   •	Instructions to run the experiment (explained in build plan)
+  %   •	Aimed at non technical researchers
+  %   •	Include screenshots when possible
+
+  % Bonus points: make a video of the instructions, upload to youtube and
+  % include link in manual
+  % Note: even if video instructions are created the manual should still have
+  % written instructions
+
+  % TODO: Write detailed instructions on how to run the experiments
+
+  \subsection{Usage}
+  \begin{itemize}
+    \tightlist{}
+    \item Attach the LeapMotion device using it's provided USB cable
+    \item Start the LeapMotion tracking program provided by the LeapMotion SDK
+    \item Start the \textit{Can't Touch This} platform by running the provided
+      executable program, or run it manually in a terminal (\verb_cargo run_)
+    \item Start up an web browser (Chrome, Firefox, Safari, etc) and navigate to
+      \\ \url{http://localhost:8000}
+    \item Click on '\textit{Start Recording}'
+    \item Move your physical hand above the LeapMotion device to make a desired
+      gesture
+    \item Once you are done making the gesture, click on
+      '\textit{Stop Recording}'
+    \item The recorded gesture you've just made should be visibly represented on
+      the canvas
+    \item Save the gesture by clicking on '\textit{Save Recording}' and bind the
+      gesture to a predefined action
+    \item Click on '\textit{Recognition Mode}' and make one of the gestures
+      you've made beforehand
+    \item The computer will give positive feedback if the gesture is recognized
+  \end{itemize}
+  \clearpage
+\end{document}
