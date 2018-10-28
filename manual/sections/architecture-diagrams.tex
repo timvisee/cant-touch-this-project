@@ -1,5 +1,6 @@
 \documentclass{standalone}
 \usepackage{standalone}
+\usepackage{siunitx}
 
 \begin{document}
   % 4. Software Architecture Diagram
@@ -24,53 +25,199 @@
   %   •	What functionality is available
   %   •	How to invoke each functionality (commands, syntax, …etc).
   \section{Architecture Diagrams}
-  In this diagram, the \textit{Can't Touch This} platform displayed globally. It
-  Shows three main objects:
+  In this diagram, the \textit{Can't Touch This} platform displayed globally.
+  It shows three main objects:
   \begin{itemize}
     \tightlist{}
     \item The user
     \item The LeapMotion device
     \item The Can't Touch This platform
   \end{itemize}
+
   \begin{figure}[h]
-    \caption{Context Diagram}
     \centering
-    \includegraphics[width=\linewidth]{context-diagram}
+      \includegraphics[width=\linewidth]{context-diagram}
+    \caption{Context Diagram}
+    \label{fig:context-diagram}
   \end{figure}
+
   The user attaches the LeapMotion device to the computer, installs the platform
-  and moves it's hand above the sensor to conduct an experiment. The LeapMotion
-  device captures the data of the hand, and passes it on through the LeapMotion
-  SDK, to the leap-rs wrapper. This leap-rs wrapper maps all functions made
-  available through the LeapMotion SDK to the Rust programming language.
-  Normally, a platform like \textit{Can't Touch This} would have to be
-  programmed using the C programming language, as this is the language the SDK
-  is written in.
+  with it's required dependencies and moves it's hand above the sensor to conduct
+  an experiment. The LeapMotion device shown at the top of
+  figure~\ref{fig:context-diagram} above
+  acts similar to a webcam, and captures visual data which is send to the
+  computer the device is attached to. The LeapMotion SDK (daemon) running on this
+  machine uses this visual data to detect hands a user is hovering above the
+  sensor.
 
-  The leap-rs wrapper enables the SDK functionality in our platform, which we
-  use in the Sensor Controller. The Sensor controller is our gateway of
-  information, of our bits and bytes. The Sensor controller passes this data on
-  to the Fragment Manager, which records all data and converts it into Points,
-  Rotational Points (\textit{RotPoints}) and Traces of both kind. It even
-  improves the recorded points in the trace by sampling them. Sampling is
-  \ldots{}
-  % TODO: Let Tim write this section
+  \subsection{LeapMotion SDK}
+  This LeapMotion SDK consists of various components, as listed below:
+  \begin{itemize}
+    \tightlist{}
+    \item Daemon: \textit{%
+        A piece of software running on the host computer, to manage and talk
+        to physical LeapMotion sensors connected to the computer.
+      }
+    \item Library: \textit{%
+        The software library that can be used to talk to the daemon through
+        your own software which supports various programming languages, to
+        obtain sensor data. The daemon must of course be running in order for
+        it to work.
+      }
+    \item Control panel: \textit{%
+        A tool included to manage LeapMotion sensors, the state of the daemon
+        and other things.
+      }
+    \item Visualizer: \textit{%
+        An application showing a 3D perspective of the detected hands, useful
+        for visual sensor feedback.
+      }
+  \end{itemize}
+  Along with the named components above, documentation and some examples are
+  included as well.
 
-  After the conversion and sampling, the Gesture Controller receives the data
-  and compares this to existing gestures, stored in the Template Manager. The
-  Template Manager compares the received gesture to the existing ones stores on
-  the system. The gestures are saved in text files, as the data is not that
-  complex. If the system matches the current gestures with an existing one, it
-  will give positive feedback through the web interface. The user will see the
-  positive feedback and know that that gesture is working well.
+  \subsection{Rust \& Wrapper}
+  We've decided to write our platform in the Rust programming language. There is
+  no native LeapMotion library available for use with this language. Therefore
+  we were required to use and develop a custom wrapper to translate parts of the
+  provided library to something Rust supports, essentially being a Rust library.
+  Our implementation is based on the open-source \emph{leap-rs} project.
 
-  The web interface also retrieves all the stored gestures for the user to
-  review. It can add and delete gestures as the user wants, except the
-  pre-defined gestures.
+  \subsection{Sensor Controller}
+  Our software, the respective platform, talks to the LeapMotion daemon being
+  part of the LeapMotion SDK to obtain data from the sensor. This is done in the
+  \emph{SensorController} shown in the figure above. Note that the figure
+  clearly visualizes that all communication with the LeapMotion SDK is done
+  through the \emph{leap-rs} wrapper. This is also the start of what we call
+  \emph{the pipeline} within our platform. This pipeline is a virtual concept
+  for how data flows through our program, from raw sensor data to gesture
+  detection.
+  Figure~\ref{fig:pipeline-diagram} (functional diagram) illustrates this in better
+  detail.
 
   \begin{figure}[h]
-    \caption{Context Diagram}
     \centering
-    \includegraphics[width=\linewidth]{functional-diagram}
+      \includegraphics[width=\linewidth]{functional-diagram}
+    \caption{Context Diagram}
+    \label{fig:pipeline-diagram}
   \end{figure}
+
+  \subsection{Fragment Manager}
+  The \emph{SensorController} controls any connected sensors and attempts to
+  collect sensor data, which it passes on to the \emph{FragmentManager}. This
+  manager organizes and tracks sensor data. Raw incomming coordinate data is
+  identified and grouped by hand and finger. Over a period of time the manager
+  collects traces for detected fingers, which essentially define the path
+  fingers have moved above the sensor until then. Along with collecting and
+  organizing raw sensor data, the fragment manager processes the data into
+  something we can easily use further down the \emph{pipeline}. In our case, we
+  resample, scale, filter and map 3D point data into rotational point data.
+
+  \subsubsection{Resample}
+  The LeapMotion sensor reports hand coordinate updates at varying rates, while
+  the sensor is used. This causes collected 3D point data to have greatly
+  varying distances between points, which makes further using the data quite a
+  challenge. Therefore, the first step of processing the data is resampling 3D
+  points with equal distance along the general curve the user had drawn above
+  the sensor. The distance is small enough to represent the slightest curves and
+  figures a user would intentionally perform, to ensure no important curve data
+  is lost. Any exceptional disproportionate points are filtered from the stream
+  of 3D points.
+
+  \paragraph{}
+  After resampling, the platform scales the drawn figure to a consistent size
+  for easy comparison later on in the pipeline when attempting to detect
+  gestures.
+
+  \subsubsection{Rotational trace}
+  Lastly, we map the new list of 3D points into rotational data. To achieve
+  this, we calculate the angle in 2D space between all 3D points. For each of
+  these angles we determine the difference to define a new list of points having
+  a relative rotation and a constant distance to the next point.
+  This rotational data along with the point distance is sufficient for our logic,
+  thus we throw away the 3D coordinate data and are left with a trace of
+  rotational points.
+
+  \subsubsection{Example}
+  To better illustrate the result data, here we'll go through two examples.
+  Imagine drawing a perfectly straight line, this would map into a list of
+  rotational points all having a relative rotation of 0\si{\degree} (degrees). The number of
+  points would depend on how long the drawn line is, and what the constant
+  distance is between the points when resampling.
+
+  When drawing a perfect circle, the sensor data would map into a list of
+  rotational points all having a relative rotation of about 15\si{\degree}. The
+  smaller the radius of the circle, the larger the relative rotation would
+  become. When drawing the circle the other way around, the relative rotation
+  for each point would be negated.
+
+  \paragraph{}
+  You can probably imagine that this rotational trace data is good enough to
+  define an abstract variant of a figure a user has drawn with his
+  finger, as this data defines the distance and curve a finger has been moved.
+  This is exactly what we're using and are doing comparisons with while
+  attempting to detect gestures, comparing the general figure of a curve being
+  performed by a user.
+
+  \subsection{Gesture Controller}
+  For each new data point being collected by the \emph{FragmentManager}, the
+  then processed data is passed to the \emph{GestureController}. Here is where
+  the gesture detection magic happens. This controller connects to the
+  \emph{TemplateManager} which holds a database of known gestures that a user
+  has defined.
+
+  The controller is constantly comparing incoming data against all
+  defined templates until a match is found for the curve a user is currently
+  performing. Simply said; this is done by walking through all rotational points
+  for the current rotational trace and all rotational traces from all templates
+  from the end (the newest point) to the beginning (the oldest point). If a
+  template trace starts to differentiate too much from the current curve, that
+  option is dropped. If walking through a template trace fully succeeds, a
+  match is found.
+
+  Some constants and thresholds are used to determine whether a
+  step is allowed when walking through, these are configurable in the source
+  code of our platform itself. This allows testing of various threshold
+  configurations for determining what produces the most accurate results.
+  When a match is found, the user is notified with the name of the template that
+  was detected.
+
+  \subsection{Web interface}
+  The platform provides a web interface for control. First of all, this
+  interface provides a real-time visualiser for the processed sensor data. To
+  achieve this, the web backend in our platform talks to various components in
+  the \emph{pipeline} of the application. The visualizer clearly shows the
+  current curve a user has drawn, along with the resample points. This visual
+  feedback should improve the quality of gestures users can perform as users
+  can adapt to what they're seeing is being detected.
+
+  Templates are also managed through this interface as stored in the
+  \emph{TemplateManager}, for recording new templates and removing existing
+  ones. When recording a new template, the visualizer shows the current state
+  of the drawn figure until the user stops the recording. Recorded gestures can
+  then be trimmed through the interface to cut off unwanted parts.
+
+  \paragraph{}
+  File storage is used to store user defined templates on the host machine, to
+  properly remember templates across platform restarts. File storage has been
+  chosen in contrast to a fully featured database, as it makes the platform much
+  easier to set up.
+
+  \paragraph{}
+  When looking at the live visualizer for the first time, you might see that the
+  visualized figure is drawn in a different orientation than your performed
+  gesture above the sensor. This is a side effect of the data we're using. The
+  shown gestures are based on data after processing in the
+  \emph{FragmentManager}. As noted, this only outputs relative rotation data
+  along with a constant distance. Because the rotation is relative the
+  visualizer has no concept of in what real-world orientation the gesture is
+  performed. The visualizer always starts drawing the processed trace into the
+  same direction (form the center of the visualizer, toward the left of the
+  screen). This does not affect the actual detection at all. And in our opinion
+  it isn't important enough to include the rotation relative to the world just
+  to better visualize the performed gesture.
+
+  % TODO: random visualizer rotations
+
   \clearpage
 \end{document}
