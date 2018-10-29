@@ -15,7 +15,7 @@
   understand as it's usually immediately visible in what part of the program
   something happens. Secondly, this makes working together on the project much
   better as developers can focus on the module they're working on without
-  interfering with someone else's changes. Although that's unsure at this time,
+  interfering with someone else's changes. Although unsure at this time,
   it probably makes modifying the code base to test various configurations for
   processing sensor data much better doable.
 
@@ -100,9 +100,10 @@
     \item At the moment of writing, there seems to be an issue in the latest
       few Rust nightly builds which might cause the \textit{Can't Touch This}
       platform to crash when running in \verb_--release_ mode.
-    \item On macOS, the LeapMotion device may never give data to begin with
-    \item On macOS, the LeapMotion device may stop recording data randomly
-    \item On macOS, the application may not run well when minimalizing the
-      backend application
+    \item On macOS, there seem to be yet unexplainable problems causing the sensor
+      to stop reporting new data to our platform. We are unsure whether this is
+      caused because of a bad machine installation, or because of macOS
+      throttling unfocussed applications. A machine restart usually temporarily
+      solves the issue.
   \end{itemize}
 \end{document}
