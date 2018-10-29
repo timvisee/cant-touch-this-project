@@ -22,9 +22,14 @@
 
   \paragraph{}
   We use code linting to enforce a consistent code style across the whole
-  project. This is done using \verb_rustfmt_, which is an additional tool that
-  can be installed for Rust to format your whole project. This way developers
-  work with a consistent code base.
+  project. This is done using
+  \href{https://github.com/rust-lang-nursery/rustfmt}{\verb_rustfmt_},
+  which is an additional tool that can be installed for Rust to format your
+  whole project. This way developers work with a consistent code base. Along
+  with that, another Rust tool called
+  \href{https://github.com/rust-lang-nursery/rust-clippy}{\verb_clippy_}
+  is used for additional linting to suggest useful code logic improvements to
+  achieve idiomatic Rust code.
 
   \paragraph{}
   Some unit tests have been implemented to ensure the most important parts of
@@ -40,6 +45,8 @@
   it is working properly. Along with testing, the Continuous Integration
   environment verifies that the code is properly formatted following the
   \verb_rustfmt_ guidelines, and if it isn\'t the \emph{build} fails.
+  The latest Continuous Integration builds for the platform itself can be found
+  \href{https://gitlab.com/timvisee/cant-touch-this/pipelines}{here} on GitLab.
 
   Along with this, the repository has been configured to block direct pushes to
   the \verb_master_ branch. Therefore a development branch must be created for
