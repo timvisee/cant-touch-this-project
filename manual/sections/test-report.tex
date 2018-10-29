@@ -1,5 +1,6 @@
 \documentclass{standalone}
 \usepackage{standalone}
+\usepackage{siunitx}
 
 \begin{document}
   \section{Test Report}
@@ -64,8 +65,8 @@
   The \verb_PointTrace_ on line 3 contains three points that travel the same
   distance at every step. The platform recognizes this as a straight line, as
   there is no change in the trajectory. The variable \verb_expected_ then gets
-  assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of 0
-  degrees. This is correct, as the line drawn on line 3 is straight.
+  assigned a \verb_RotTrace_ that contains only one \verb_RotPoint_ of
+  0\si{\degree} (degrees). This is correct, as the line drawn on line 3 is straight.
 
   \lstinputlisting[
     language=Rust,
@@ -80,14 +81,14 @@
   concludes the motion by moving back 5 units on the \verb_y_ and \verb_x_ axis,
   respectively.
 
-  The \verb_RotTrace_ on line 11 contains three \verb_RotPoint_'s of \verb_-90_
-  degrees. This is because a \verb_RotPoint_ calculates itself based on three
+  The \verb_RotTrace_ on line 11 contains three \verb_RotPoint_'s of \verb_-90_\si{\degree}.
+  This is because a \verb_RotPoint_ calculates itself based on three
   \verb_Point_'s. In the case of this unit test, it takes three collections of
   three \verb_Points_: \verb_1-3_, \verb_2-4_ and \verb_3-5_. For each
   collection, it calculates 2 angles: \verb_1-2_ and \verb_2-3_. It then
   compares the difference between these angles, and that will be the
   \verb_RotPoint_ for those three points. This will produce three
-  \verb_RotPoint_'s of \verb_-90_ degrees.
+  \verb_RotPoint_'s of \verb_-90_ \si{\degree}.
 
   \paragraph{}
   Note that the project only includes unit tests for a few essential and easily
@@ -102,8 +103,9 @@
       platform to crash when running in \verb_--release_ mode.
     \item On macOS, there seem to be yet unexplainable problems causing the sensor
       to stop reporting new data to our platform. We are unsure whether this is
-      caused because of a bad machine installation, or because of macOS
-      throttling unfocussed applications. A machine restart usually temporarily
-      solves the issue.
+      caused by a bad machine installation, or by macOS throttling unfocussed
+      applications. A machine restart usually temporarily solves the issue.
   \end{itemize}
+
+  \clearpage
 \end{document}
