@@ -81,15 +81,15 @@
   no native LeapMotion library available for use with this language. Therefore
   we were required to use and develop a custom wrapper to translate parts of the
   provided library to something Rust supports, essentially being a Rust library.
-  Our implementation is based on the open-source \emph{leap-rs} project.
+  Our implementation is based on the open-source \verb_leap-rs_ project.
 
   \subsection{Sensor Controller}
   Our software, the respective platform, talks to the LeapMotion daemon being
   part of the LeapMotion SDK to obtain data from the sensor. This is done in the
-  \emph{SensorController} shown in the figure above. Note that the figure
+  \verb_SensorController_ shown in the figure above. Note that the figure
   clearly visualizes that all communication with the LeapMotion SDK is done
-  through the \emph{leap-rs} wrapper. This is also the start of what we call
-  \emph{the pipeline} within our platform. This pipeline is a virtual concept
+  through the \verb_leap-rs_ wrapper. This is also the start of what we call
+  \verb_the pipeline_ within our platform. This pipeline is a virtual concept
   for how data flows through our program, from raw sensor data to gesture
   detection.
   Figure~\ref{fig:pipeline-diagram} (functional diagram) illustrates this in better
@@ -103,14 +103,14 @@
   \end{figure}
 
   \subsection{Fragment Manager}
-  The \emph{SensorController} controls any connected sensors and attempts to
-  collect sensor data, which it passes on to the \emph{FragmentManager}. This
+  The \verb_SensorController_ controls any connected sensors and attempts to
+  collect sensor data, which it passes on to the \verb_FragmentManager_. This
   manager organizes and tracks sensor data. Raw incomming coordinate data is
   identified and grouped by hand and finger. Over a period of time the manager
   collects traces for detected fingers, which essentially define the path
   fingers have moved above the sensor until then. Along with collecting and
   organizing raw sensor data, the fragment manager processes the data into
-  something we can easily use further down the \emph{pipeline}. In our case, we
+  something we can easily use further down the \verb_pipeline_. In our case, we
   resample, scale, filter and map 3D point data into rotational point data.
 
   \subsubsection{Resample}
@@ -160,10 +160,10 @@
   performed by a user.
 
   \subsection{Gesture Controller}
-  For each new data point being collected by the \emph{FragmentManager}, the
-  then processed data is passed to the \emph{GestureController}. Here is where
+  For each new data point being collected by the \verb_FragmentManager_, the
+  then processed data is passed to the \verb_GestureController_. Here is where
   the gesture detection magic happens. This controller connects to the
-  \emph{TemplateManager} which holds a database of known gestures that a user
+  \verb_TemplateManager_ which holds a database of known gestures that a user
   has defined.
 
   The controller is constantly comparing incoming data against all
@@ -186,13 +186,13 @@
   The platform provides a web interface for control. First of all, this
   interface provides a real-time visualiser for the processed sensor data. To
   achieve this, the web backend in our platform talks to various components in
-  the \emph{pipeline} of the application. The visualizer clearly shows the
+  the \verb_pipeline_ of the application. The visualizer clearly shows the
   current curve a user has drawn, along with the resample points. This visual
   feedback should improve the quality of gestures users can perform as users
   can adapt to what they're seeing is being detected.
 
   Templates are also managed through this interface as stored in the
-  \emph{TemplateManager}, for recording new templates and removing existing
+  \verb_TemplateManager_, for recording new templates and removing existing
   ones. When recording a new template, the visualizer shows the current state
   of the drawn figure until the user stops the recording. Recorded gestures can
   then be trimmed through the interface to cut off unwanted parts.
@@ -208,7 +208,7 @@
   visualized figure is drawn in a different orientation than your performed
   gesture above the sensor. This is a side effect of the data we're using. The
   shown gestures are based on data after processing in the
-  \emph{FragmentManager}. As noted, this only outputs relative rotation data
+  \verb_FragmentManager_. As noted, this only outputs relative rotation data
   along with a constant distance. Because the rotation is relative the
   visualizer has no concept of in what real-world orientation the gesture is
   performed. The visualizer always starts drawing the processed trace into the
