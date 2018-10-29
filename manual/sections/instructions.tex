@@ -7,7 +7,7 @@
     This} platform. It assumes that the user has followed the instructions found
   in the \textit{Installation} chapter. The following instructions will detail
   how to setup the platform so that you can conduct the \textit{experiments}
-  found later in this manual.
+  found further into this manual.
   % Step by step instructions on how to use the research platform to conduct
   % research.
   % Checklist:
@@ -26,23 +26,27 @@
   \begin{itemize}
     \tightlist{}
     \item Attach the LeapMotion device using it's provided USB cable
-    \item Start the LeapMotion tracking program provided by the LeapMotion SDK
+    \item Start the LeapMotion daemon application provided by the LeapMotion
+      SDK, optionally use the provided LeapMotion control panel for this
     \item Start the \textit{Can't Touch This} platform by running the provided
-      executable program, or run it manually in a terminal (\verb_cargo run_)
-    \item Start up an web browser (Chrome, Firefox, Safari, etc) and navigate to
-      \\ \url{http://localhost:8000}
+      \emph{Can't Touch This} executable, or run it manually in a terminal from
+      the project directory (\verb_cargo run_, or \verb_cargo run --release_ if
+      supported). Rust nightly must be used (\verb_rustup default nightly_)
+    \item Start up an web browser (Firefox, Chrome, Safari, etc) and navigate to
+      \url{http://localhost:8000} on the same machine
     \item Click on '\textit{Start Recording}'
     \item Move your physical hand above the LeapMotion device to make a desired
       gesture
     \item Once you are done making the gesture, click on
       '\textit{Stop Recording}'
     \item The recorded gesture you've just made should be visibly represented on
-      the canvas
-    \item Save the gesture by clicking on '\textit{Save Recording}' and bind the
-      gesture to a predefined action
-    \item Click on '\textit{Recognition Mode}' and make one of the gestures
-      you've made beforehand
-    \item The computer will give positive feedback if the gesture is recognized
+      the canvas. Trim it to cut off undesired parts of the recorded gesture
+    \item Name the new gesture template, and save the gesture by clicking on '\textit{Save Recording}'
+    \item After recording, attempt to perform a recorded gesture above the
+      sensor. The computer will give positive feedback by showing a notification
+      in the web interface if the gesture is recognized
+    \item The live visualizer can be toggled using the '\textit{Visualize}'
+      button
   \end{itemize}
 
   \clearpage

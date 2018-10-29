@@ -10,20 +10,22 @@
       Linux (kernel 2.6.18+) operating system
     \item An installation of the LeapMotion
       \href{https://developer.leapmotion.com/sdk/v2}{SDK}
-    \item An installation of the
-      \href{https://rustup.rs}{Rust} programming language
+    \item An installation of the Rust programming language, recommended to
+      install with \href{https://rustup.rs}{rustup}. Rust nightly must be used
+      (\verb_rustup default nightly_)
     \item The physical LeapMotion device itself
     \item The \textit{Can't Touch This} platform
+      \href{https://gitlab.com/timvisee/cant-touch-this.git}{sources}
   \end{itemize}
 
   \subsection{Software Dependencies}
   The \textit{Can't Touch This} platform is written using the
-  \href{https://rust-lang.org}{Rust programming language}. This means that the
+  \href{https://rust-lang.org}{Rust} programming language. This means that the
   operating system that the platform will run on must also support the Rust
   programming language. Fortunately, Rust runs on all popular operating systems
   today, shown above in the list of requirements. An up-to-date list of all
-  supported versions can be found on the
-  \href{https://forge.rust-lang.org/platform-support.html}{Rust website}.
+  supported versions can be found on the Rust
+  \href{https://forge.rust-lang.org/platform-support.html}{website}.
   Additonally, the \textit{Can't Touch This} platform requires the LeapMotion
   \href{https://developer.leapmotion.com/sdk/v2}{SDK} to provide all necessary
   sensor data. Just like the Rust programming language, the LeapMotion SDK can
@@ -39,7 +41,9 @@
   basic tools like a text editor or IDE, and a terminal. It is highly
   recommended to use \href{https://git-scm.com/}{git}, as this was used during
   development of the platform. Additionally, setting up an CI server may prove
-  useful. Setting up an CI server is beyond the scope of this manual.
+  useful. The current project repositories have a Continuous Integration
+  environment configured for automated testing, but setting one up beyond the
+  scope of this manual 
 
   \clearpage
 \end{document}
