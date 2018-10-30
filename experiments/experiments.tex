@@ -71,6 +71,9 @@
     \item Square counter-clockwise
   \end{itemize}
 
+  \section{Visual feedback}
+  % TODO
+
   \section{Detection speed}
   Another important aspect of a gesture detection system, is the speed, or
   rather, delay for correctly detecting a performed gesture. To better define
@@ -123,5 +126,98 @@
   generic actions to gestures to control a computer yet. And until that is
   tested, it's hard to say whether we'd feel the same when controlling a
   computer with these gestures.
+
+  \section{New ideas}
+  During the project, and during the experiments we've conducted we came up with
+  quite a few ideas. Some of them are things we'd wanted to implement but didn't
+  have the time for it due to time constraints. Other ideas originate from
+  test results we've collected.
+
+  \subsection{Multiple fingers}
+  The current system only has support for gestures consisting of a single trace,
+  being the trace drawn by the index finger of a hand. The first logical
+  expansion would of course be to support gestures having motions with 5
+  fingers. Sadly, due to time constraints, we couldn't implement this.
+
+  Our guess is that implementing this isn't too hard when using the same
+  detection system as our current platform. The implementation might be as easy
+  as extending our \verb_Hand_ structure (in code) to contain 5 traces, instead
+  of just 1. This might be cool to experiment with for other groups taking a
+  look at this project.
+
+  \subsubsection{Not just finger tips}
+  With the extension described above, the system would still only be tracking
+  finger tips. The sensor we're currently using is able to report the position
+  of all joints in a hand, including the center of each bone and the center of
+  the hand palm. This is easily visible in the 3D visualizer that is provided
+  with the LeapMotion software package. The \verb_leap-rs_ wrapper that is
+  currently used doesn't have an interface to obtain this information yet,
+  but this could be implemented without too much effort.
+
+  The same might be true for this implementation, just tracking the trace for
+  every joint might be enough. We're of course not sure, that's something cool
+  to test out.
+
+  \subsection{3D detection}
+  Although we intended to support it at first, 3D gesture detection would be an
+  awesome improvement. The current system uses 2D rotational data to represent
+  user motions. Simply said; because of processing data to this format, the
+  third dimension is lost. We found it difficult to reliably transform a 3D
+  curve into 2D rotation data, and wanted to get the 2D system working first.
+
+  Of course, motions in 3D space are transformed into data our platform uses.
+  During this process the depth (Z-axis) is lost though. Drawing a circle
+  sideways would be detected as moving up and down on a straight line. In this
+  system, you might imagine drawing on a virtual plane on the X and Y axis.
+  Supporting the Z-axis as well for a 3rd dimension would open up a lot of new
+  possibilities for drawing gestures in different orientations and would support
+  much more complex gestures.
+
+  \subsection{Bindable actions}
+  Our idea was to allow users to bind custom actions to recorded gesture
+  templates quite early in the project. This would allow a user to configure the
+  platform to control their computer in a generic way. The implementation can be
+  as simple as binding mouse (and scroll weel) actions, keys and system commands.
+
+  Such an implementation would immediately make the project much more viable for
+  use by others (given that it would work properly). This also opens new
+  research questions such as; can gestures be complex enough to support enough
+  gestures for controlling a generic computer?
+
+  \paragraph{}
+  This idea was also the segway to research on how usable a gesture detection
+  system is for use in medical \& sterile environments. Imagine doctors not
+  having to touch a röntgen machine to swipe between pictures, by using
+  touch-less hand gestures instead. The implementation of bindable actions
+  should make quite clear whether the system is usable and reliable.
+
+  \subsection{Multiple sensors}
+  An awesome extension would be to use and combine multiple sensors in the
+  platform, instead of using a single LeapMotion sensor. The obvious choice
+  would be to use a second LeapMotion sensor to combine data of the two. This
+  could be used to filter jitter, and to fallback if the view for one sensor os
+  occluded.
+
+  This is one of the first things we looked into during the project. Sadly, it
+  became apparent that the LeapMotion SDK doesn't support connecting multiple
+  sensors, even though the provided library would suggest otherwise as there are
+  functions available to obtain a list of connected sensors.
+  \href{https://forums.leapmotion.com/t/multiple-leap-motion-support/770}{This}
+  forum thread is about this topic, in which users are asking for support to use
+  multiple sensors. In this thread, LeapMotion developers have said this is not
+  possible.
+
+  \paragraph{}
+  It would be fun to use a different computer, or possible a virtual machine
+  with a virtual USB controller to support connecting another sensor.
+  The data from this sensor would then need to be
+  transmitted to the platform to collect the sensor data. This is however
+  outside the scope of our project, and is a challenge to properly implement on it's own.
+
+  \paragraph{}
+  Another option is to implement support for other kinds of sensors, such as the
+  XBox Kinect, or something different. Our platform would than need to provide
+  the proper abstractions to aggregate the data from different kinds of sensors
+  into something the platform could use.
 
 \end{document}
