@@ -44,18 +44,17 @@
   \end{figure}
   \clearpage
 
-  \section{Recognized motions}
+  \section*{Recognized motions}
   In this document, we will list all the motions that are recognized by
   \textit{Can't Touch This}. These experiments can be conducted by first setting
   up the platform itself. Instructions for this can be found in the manual.
   After setting everything up, conducting the experiments is a piece of cake.
-  Start up the platform, open a webbrowser and go to
-  \href{http://localhost:8000}. Click on `Visualize' to view your fingers being
-  traced.\\
+  Start up the platform, open a webbrowser and go to \href{http://localhost:8000}.
+  Click on `Visualize' to view your fingers being traced.
 
+  \paragraph{}
   Please try to make the following gestures above the LeapMotion sensor. You
-  will receive visual feedback if a gesture has been made succesfully. Try to
-  succesfully complete each gesture at least 5 times for consistency sake.
+  will receive visual feedback if a gesture has been made succesfully.
 
   \begin{itemize}
     \tightlist
@@ -72,52 +71,51 @@
   \end{itemize}
 
 
-  \section{Recognition consistency}
+  \section*{Recognition consistency}
   It is important that all gestures are succesfully performed and recognized
   multiple times. This is because recognizing gestures can be error-prone. By
   performing gestures often, the risk of it recognizing a gesture incorrectly
   decreases dramatically.
 
-  \section{Detection speed}
+  \section*{Detection speed}
   Another important aspect of the gesture recognition system is the speed, or
   rather, the delay for detecting a performed gesture. To avoid confusion, we've
   decided to define the term delay as follows: \textit{The time it takes for the
     platform to show the name of the correct gesture in the console, after a
     gesture has been completely performed above the sensor}.
 
-  \section{Buffering}
+  \section*{Buffering}
   Since it can be tricky to accurately measure the time difference between an
   invocation and an action, we've decided to record 20 invocations. With this as
   buffer, we can count a delay in frames, with precision accurate enough to
   recognize gestures correctly. The square gesture uses this technique the most,
   because it has very distinctive corners.
 
-  \paragraph{}
-  After performing the test it was immediately quite clear that delay varies
+  \section*{Internal testing results}
+  After performing the our own tests it was quite clear that delay varies
   greatly. The \emph{delay} varied from about 5 to 11 frames. With a speed of 60
   frames per second, each frame is about 17 milliseconds. This defines a delay
   varying between 85 to 187 milliseconds. There were two outliers with a delay
   of 16 to 22 frames which translate to about 270 and 370 milliseconds.
 
-  We believe the varying difference has to do with the accuracy of detecting the gesture
-  itself. Imagine you are drawing a perfect square gesture (perfect relative to
-  the square gesture you might have previously recorded) above the sensor, the
-  gesture will be recognized quicker before even fully completing the gesture,
-  as compared to a square motion that differs slightly. Because it's virtually
-  impossible to perform the gesture in exactly the same way every iteration, a
-  difference in detection is indeed expected.
+  We believe the varying difference has to do with the accuracy of detecting the
+  gesture itself. Imagine you are drawing a perfect square gesture (perfect
+  relative to the square gesture you might have previously recorded) above the
+  sensor, the gesture will be recognized quicker before even fully completing
+  the gesture, as compared to a square motion that differs slightly. Because
+  it's virtually impossible to perform the gesture in exactly the same way every
+  iteration, a difference in detection is indeed expected.
 
-  Note that this method of testing latency is still quite simplistic. It doesn't
-  take computer, and screen delay into account. Nor does it test what the
-  latency of the used sensor itself is. Our test strictly focusses on the delay
-  between performing the gesture and seeing visual feedback. We performed the
-  test with the visualizer enabled, which was visible on the material we
-  recorded. What's interesting is that it looks like the gesture is instantly
-  (meaning; within the same frame) recognized as the last sampled point of a
-  gesture shows up on the visualizer. This would suggest that the actual
-  latency for detection on the processed data is faster than 17 milliseconds.
-  This is of course not very scientific, but we feel it's an awesome result non
-  the less.
+  Note that our method of testing latency is still quite simplistic. It doesn't
+  take computer and screen delay into account. Nor does it test what the latency
+  of the used sensor itself is. Our test strictly focusses on the delay between
+  performing the gesture and seeing visual feedback. We performed the test with
+  the visualizer enabled, which was visible on the material we recorded. What's
+  interesting is that it looks like the gesture is instantly (meaning; within
+  the same frame) recognized as the last sampled point of a gesture shows up on
+  the visualizer. This would suggest that the actual latency for detection on
+  the processed data is faster than 17 milliseconds. This is of course not very
+  scientific, but we feel it's an awesome result non the less.
 
   What is important though, is how responsive the detection feels. During these
   tests, the detection (strictly speaking about detection speed) felt snappy even
