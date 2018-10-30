@@ -8,11 +8,13 @@
     \tightlist{}
     \item A computer with the Windows (7+), OSX (10.7+, Lion+) or
       Linux (kernel 2.6.18+) operating system
-    \item An installation of the LeapMotion
-      \href{https://developer.leapmotion.com/sdk/v2}{SDK}
-    \item An installation of the Rust programming language, recommended to
+    \item The Rust programming language must be installed, recommended to
       install with \href{https://rustup.rs}{rustup}. Rust nightly must be used
       (\verb_rustup default nightly_)
+    \item The \href{https://cmake.org/}{Cmake} toolchain must be installed
+    \item The \href{https://freedesktop.org/wiki/Software/pkg-config}{pkg-config} tool must be installed
+    \item The LeapMotion
+      \href{https://developer.leapmotion.com/sdk/v2}{SDK} V2 must be installed
     \item The physical LeapMotion device itself
     \item The \textit{Can't Touch This} platform
       \href{https://gitlab.com/timvisee/cant-touch-this.git}{sources}
@@ -30,6 +32,86 @@
   \href{https://developer.leapmotion.com/sdk/v2}{SDK} to provide all necessary
   sensor data. Just like the Rust programming language, the LeapMotion SDK can
   be installed on all platforms.
+
+  \subsubsection{Install Rust}
+  Installing the Rust programming language and it's toolchain is quite simple.
+  The \href{https://rustup.rs}{rustup} tool can be used for this. The rustup
+  website shows how the tool is installed on your platform.\\
+  Check it out here: \url{https://rustup.rs}
+
+  \paragraph{}
+  To install rustup on Linux, first make sure you've \verb_curl_ installed.
+  Then, initiate the installation by running the following command in a
+  terminal:
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Install rustup and Rust
+    },
+  ]{listings/install-rust.sh}
+  Follow the instructions shown by the installer, and make sure you select the
+  \verb_nightly_ toolchain tuple. When installation is complete, you may check
+  whether the Rust and carbo binaries are found by invoking:
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Check whehter Rust and Cargo are installed properly
+    },
+  ]{listings/rust-version.sh}
+
+  \subsubsection{Install Cmake and pkg-config}
+  How to install \verb_Cmake_ and \verb_pkg-config_ falls outside the scope of
+  this manual and varies greatly between platform and version.
+
+  It's recommended to check out the respective websites for installation
+  instructions.
+  \begin{itemize}
+    \tightlist{}
+    \item \url{https://cmake.org/install/}
+    \item \url{https://www.freedesktop.org/wiki/Software/pkg-config/}
+  \end{itemize}
+
+  \subsubsection{Install LeapMotion SDK V2}
+  The LeapMotion SDK V2 can be downloaded from
+  \href{https://developer.leapmotion.com/sdk/v2}{this} page. At the moment of
+  writing this manual, an account is required thus you must register in order
+  to to start the download. For developing this platform we've used version
+  \verb_v2.3.1_, although newer versions having the major version V2 should work
+  fine.
+
+  \paragraph{Windows}
+  On Windows, using the LeapMotion SDK installer obtained from the ZIP file
+  provided on their website should be sufficient. Be sure to check the included
+  \verb_README_ for an up-to-date set of installation instructions. If you
+  want to be able to build the platform from source, make sure you also install
+  the SDK files.
+
+\paragraph{Linux \& macOS}
+  Installing the SDK on Linux or macOS requires a little bit more manual work.
+  First install the LeapMotion daemon and control panel using the installer
+  provided in the ZIP file from their website.
+  The following library files must be moved to their respective location on your
+  machine:
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Copy and install LeapMotion library files
+    },
+  ]{listings/install-leap-motion.sh}
+
+  The installed \verb_pkg-config_ tool is used to tell the compiler where the
+  library installed. For this, a \verb_pkg-config_ configuration file must be
+  created. An example can be found in the project repository
+  \href{https://gitlab.com/timvisee/cant-touch-this/blob/ece65fab15b3c088e57628dc0c82474efddbbfd2/ci/libleap.pc}{here}.
+  Name it \verb_libleap.pc_ and place it at
+  \verb_/usr/lib/pkgconfig/libleap.pc_.
+
+  For additional help and information; the \verb`install_sdk` script used on
+  the Continuous Integration environment defines quite well wat must be done
+  to install the SDK, check it out in the project repository
+  \href{https://gitlab.com/timvisee/cant-touch-this/blob/ece65fab15b3c088e57628dc0c82474efddbbfd2/ci/install_sdk}{here}.
+
+  Again, be sure to read the included \verb_README_ for up-to-date instructions.
 
   \subsection{External resources}
   No additonal resources are required to run the \textit{Can't Touch This}
