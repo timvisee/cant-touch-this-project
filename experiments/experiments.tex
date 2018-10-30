@@ -70,8 +70,9 @@
     \item Square counter-clockwise
   \end{itemize}
 
-  \section{Visual feedback}
-  % TODO
+  \section*{Visual feedback}
+  % TODO: answer: does visual feedback help, does it improve accuracy, what are
+  % our experiences
 
   \section*{Recognition consistency}
   % TODO: we aren't performing gesture many times to improve accuracy
@@ -94,7 +95,7 @@
   frames, with precision accurately enough for our use case. The gesture that we
   choose was the square, as is has quite distinctive corners.
 
-  \subsection{Results}
+  \subsection*{Results}
   After performing the our own tests it was quite clear that delay varies
   greatly. The \emph{delay} varied from about 5 to 11 frames. With a speed of 60
   frames per second, each frame is about 17 milliseconds. This defines a delay
@@ -133,14 +134,14 @@
   computer with these gestures. We mention this idea of binding actions later in
   this report in the \emph{Ideas} section.
 
-  \section{Ideas}
+  \section*{Ideas}
   During the project, and during the experiments we've conducted we came up with
   quite a few ideas. Some of them are things we'd wanted to implement but didn't
   have the time for it due to time constraints. Other ideas originate from
   test results we've collected.
   Here follow a few of them:
 
-  \subsection{Multiple fingers}
+  \subsection*{Multiple fingers}
   The current system only has support for gestures consisting of a single trace,
   being the trace drawn by the index finger of a hand. The first logical
   expansion would of course be to support gestures having motions with 5
@@ -152,7 +153,7 @@
   of just 1. This might be cool to experiment with for other groups taking a
   look at this project.
 
-  \subsubsection{Not just finger tips}
+  \subsubsection*{Not just finger tips}
   With the extension described above, the system would still only be tracking
   finger tips. The sensor we're currently using is able to report the position
   of all joints in a hand, including the center of each bone and the center of
@@ -165,7 +166,7 @@
   every joint might be enough. We're of course not sure, that's something cool
   to test out.
 
-  \subsection{3D detection}
+  \subsection*{3D detection}
   Although we intended to support it at first, 3D gesture detection would be an
   awesome improvement. The current system uses 2D rotational data to represent
   user motions. Simply said; because of processing data to this format, the
@@ -180,7 +181,7 @@
   possibilities for drawing gestures in different orientations and would support
   much more complex gestures.
 
-  \subsection{Bindable actions}
+  \subsection*{Bindable actions}
   Our idea was to allow users to bind custom actions to recorded gesture
   templates quite early in the project. This would allow a user to configure the
   platform to control their computer in a generic way. The implementation can be
@@ -198,7 +199,7 @@
   touch-less hand gestures instead. The implementation of bindable actions
   should make quite clear whether such a system is usable and reliable.
 
-  \subsection{Multiple sensors}
+  \subsection*{Multiple sensors}
   An awesome extension would be to use and combine multiple sensors in the
   platform, instead of using a single LeapMotion sensor. The obvious choice
   would be to use a second LeapMotion sensor to combine data of the two. This
