@@ -90,16 +90,98 @@
   % TODO: - do we think the current system supports enough to control a computer
   % TODO: - what can we improve? (improve detection system, and how)
 
-  \section*{Visual feedback}
-  % TODO: answer: does visual feedback help, does it improve accuracy, what are
-  % our experiences
+  \clearpage
 
-  \section*{Recognition consistency}
+  \section*{Visual feedback}
+  An interesting aspect for using our platform is visual feedback, and what the
+  effect of using it is on users using our platform. With visual feedback, a
+  user would be able to see on a computer screen how the computer (or rather;
+  sensor) recognizes his hand(s) and/or gestures. The general idea for this test
+  is that showing visual feedback might improve accuracy, as users could adapt
+  the gesture they're performing on what they see the computer recognizes.
+  The sensor isn't super accurate all of the time, or users might go outside the
+  view of the sensor. The visual feedback would immediately show this.
+
+  \subsection*{Visualizers}
+  Two visualizers are available. The first one is part of the LeapMotion
+  software package, and is a 3D visualizer that can be started from the
+  LeapMotion control panel. This visualizer shows a 3D representation of
+  recognized hands above the LeapMotion sensor inside the bounding box of the
+  sensor. Joints are visible in the hand, although our software only uses the
+  position of the index finger tip at this moment.
+
+  The second visualizer is the one we've implemented. It is show on the web
+  interface that can be opened after starting the software. This visualizer is
+  quite different, not only in aesthetics, but also in what it shows. Our
+  visualizer is 2D and shows the data that has been processed by our software.
+  The \emph{Manual} explains how we are processing the data, and that we're
+  mapping 3D points from the sensor in traces of rotational data. This is what
+  is rendered in our visualizer, and is essentially what is used for gesture
+  detection. This is therefore \emph{closest to reality}, where \emph{reality}
+  consists of user defined gestures in our software and the recognition system.
+  If gestures show up correctly in this visualizer, the software should
+  recognize them correctly. This same visualizer is used for recording and
+  trimming new gestures.
+
+  \subsection*{Results}
+  For this test we've tried a lot of different gestures, in a lot of different
+  positions. Here are some of our statements on our findings:
+
+  \begin{itemize}
+    \item Drawing circles isn't a problem. The only thing a visualizer might
+      help for is to see whether you're performing the gestures within the
+      view of the sensor, and to see whether your hand is properly recognized.
+    \item Without visual feedback attempting to draw squares, can easily result
+      in drawing rectangles, especially when focussing on the screen instead of
+      looking at your hand. Having the 2D web visualizer helps greatly as you
+      can see whether you're drawing a square properly.
+    \item The 3D visualizer is easier to understand, although the data shown in
+      the 2D visualizer is more consistent. This, in the sense that using the 2D
+      visualizer to guide you to perfectly draw a gesture works better and
+      produces more accurate results than using the 3D visualizer.
+    \item Either visualizer is useful to see whether the sensor is
+      jittering, causing detection failures.
+    \item Properly drawing a gesture with the other hand a gesture was
+      recorded with is virtually impossible without a visualizer, except for
+      shapes that are really simple.
+    \item The 2D web visualizer gives a better sense of how big a user is
+      drawing a gesture. Allowing the user to be more accurate.
+    \item The 2D web visualizer is useful to figure out why a false positive may
+      have been detected as it clearly shows the shape that is used for
+      recognition.
+  \end{itemize}
+
+  Based on these statements we can conclude that using a visualizer is a good
+  idea, as it does seem to improve results for most gestures. There are gestures
+  however that don't really benefit from using a visualizer. Such gestures can
+  be used in a situation where a visualizer isn't preferred as it would use up
+  screen real estate.
+
+  The accuracy of a user drawing a gesture correctly might improve the more the
+  user uses the system. We haven't tested this.
+
+  \paragraph{}
+  None of the visualizers notify the user if a drawn gesture is similar to a
+  user defined gesture (but is not a match). Imagine that you're drawing a
+  circle, but too large for it to be detected. The visualizers don't show that
+  your circle is too large. This might be something to improve on.
+
+  \paragraph{}
+  Note that we, the developers of the platform, have conducted this test. Other
+  users that don't understand the internals of the system might experience this
+  different. The second visualizer in the web interface shows processed data,
+  this might look weird and unintuitive for other users.
+
+  \clearpage
+
+  \section*{TODO: Recognition consistency}
   % TODO: we aren't performing gesture many times to improve accuracy
   It is important that all gestures are successfully performed and can be recognized
   multiple times. This is because recognizing gestures can be error-prone. By
   performing gestures often, the risk of it recognizing a gesture incorrectly
   decreases dramatically.
+
+  \clearpage
 
   \section*{Detection speed}
   Another important aspect of the gesture recognition system is the speed, or
@@ -153,6 +235,8 @@
   tested, it's hard to say whether we'd feel the same when controlling a
   computer with these gestures. We mention this idea of binding actions later in
   this report in the \emph{Ideas} section.
+
+  \clearpage
 
   \section*{Ideas}
   During the project, and during the experiments we've conducted we came up with
@@ -216,7 +300,7 @@
   This idea was also the segway to research on how usable a gesture detection
   system is for use in medical \& sterile environments. Imagine doctors not
   having to touch a röntgen machine to swipe between pictures, by using
-  touch-less hand gestures instead. The implementation of bindable actions
+  touchless hand gestures instead. The implementation of bindable actions
   should make quite clear whether such a system is usable and reliable.
 
   \subsection*{Multiple sensors}
