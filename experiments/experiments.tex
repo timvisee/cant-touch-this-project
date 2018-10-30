@@ -139,6 +139,11 @@
       produces more accurate results than using the 3D visualizer.
     \item Either visualizer is useful to see whether the sensor is
       jittering, causing detection failures.
+    \item Properly drawing a gesture with the other hand a gesture was
+      recorded with is virtually impossible without a visualizer, except for
+      shapes that are really simple.
+    \item The 2D web visualizer gives a better sense of how big a user is
+      drawing a gesture. Allowing the user to be more accurate.
     \item The 2D web visualizer is useful to figure out why a false positive may
       have been detected as it clearly shows the shape that is used for
       recognition.
@@ -149,14 +154,17 @@
   however that don't really benefit from using a visualizer. Such gestures can
   be used in a situation where a visualizer isn't preferred as it would use up
   screen real estate.
+
   The accuracy of a user drawing a gesture correctly might improve the more the
   user uses the system. We haven't tested this.
 
+  \paragraph{}
   None of the visualizers notify the user if a drawn gesture is similar to a
   user defined gesture (but is not a match). Imagine that you're drawing a
   circle, but too large for it to be detected. The visualizers don't show that
   your circle is too large. This might be something to improve on.
 
+  \paragraph{}
   Note that we, the developers of the platform, have conducted this test. Other
   users that don't understand the internals of the system might experience this
   different. The second visualizer in the web interface shows processed data,
