@@ -71,19 +71,26 @@
     \item Square counter-clockwise
   \end{itemize}
 
-  \section{Detection speed}
-  Another important aspect of a gesture detection system, is the speed, or
-  rather, delay for correctly detecting a performed gesture. To better define
-  the term delay, we've chosen the following description: the time it takes for
-  the platform to show the name of the correct gesture in the console, after a
-  gesture has been completely performed above the sensor.
 
-  \paragraph{}
-  Since it can be tricky to accurately measure the time difference between the
-  invocation and the action here, we've decided to use a camera to record 20
-  invocations. With the resulting footage, we'll be able to count delay in
-  frames, with precision accurately enough for our use case. The gesture that we
-  choose was the square, as is has quite distinctive corners.
+  \section{Recognition consistency}
+  It is important that all gestures are succesfully performed and recognized
+  multiple times. This is because recognizing gestures can be error-prone. By
+  performing gestures often, the risk of it recognizing a gesture incorrectly
+  decreases dramatically.
+
+  \section{Detection speed}
+  Another important aspect of the gesture recognition system is the speed, or
+  rather, the delay for detecting a performed gesture. To avoid confusion, we've
+  decided to define the term delay as follows: \textit{The time it takes for the
+    platform to show the name of the correct gesture in the console, after a
+    gesture has been completely performed above the sensor}.
+
+  \section{Buffering}
+  Since it can be tricky to accurately measure the time difference between an
+  invocation and an action, we've decided to record 20 invocations. With this as
+  buffer, we can count a delay in frames, with precision accurate enough to
+  recognize gestures correctly. The square gesture uses this technique the most,
+  because it has very distinctive corners.
 
   \paragraph{}
   After performing the test it was immediately quite clear that delay varies
