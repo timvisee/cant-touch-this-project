@@ -194,6 +194,62 @@
   When a match is found, the user is notified with the name of the template that
   was detected.
 
+  \paragraph{}
+  We choose this approach with a custom gesture recognition system, because we
+  were unable to find a Rust library that did have support for gesture
+  recognition. Also, outside the scope of Rust the detection libraries are
+  severely limited. Some are limited to a few hard-coded gestures and don't
+  support shape matching. Implementations for touchpads on laptops are
+  proprietary.
+
+  The LeapMotion SDK implements basic gesture recognition itself. This is
+  however limited to a few static actions. Namely:
+  \begin{itemize}
+    \tightlist{}
+    \item A circle gesture
+    \item A swipe gesture
+    \item A tap gesture
+  \end{itemize}
+  The SDK doesn't support adding more gestures. And, because the SDK is
+  proprietary we were not able to extract the detection logic from this to
+  implement ourselves.
+
+  The Xbox Kinect had a few interesting gesture recognition libraries. One of
+  these is \href{https://archive.codeplex.com/?p=kinectdtw}{KinectDTW}. This
+  library is also limited to some very basic actions, and wasn't viable for our
+  purpose.
+
+  The
+  \href{https://forums.leapmotion.com/t/openleapkit-updated-leap-motion-controller-toolkit-for-common-needs/289}{OpenLeapKit}
+  project provided some awesome resources, but didn't really get into actual
+  dynamic gesture recognition.
+
+  Two forum posts discussing hand gesture detection suggested to use an machine
+  learning approach, for which you train a detection model. This wasn't a viable
+  option for us though, as such models need to be trained with a lot of data.
+  Doing this physically isn't really possible, thus we'd have to build a
+  simulator and generate a lot of sample data to train. Building this would be a
+  project on it's own.
+
+  \paragraph{}
+  In the end we came across
+  \href{http://www.creativedistraction.com/demos/gesture-recognition-kinect-with-hidden-markov-models-hmms/}{HHM}
+  (Hidden Markov Models), and the term
+  \href{http://delivery.acm.org/10.1145/3140000/3134139/p12-balcazar.pdf}{Circular
+  Measurements}, the two seemingly go-to methods for doing gesture recognition
+  in our context.
+
+  After researching both we did decide to go with the latter.
+  Not just because it seemed to be simpler to implement. But also because it is
+  must more dynamic because it only compares and tries to match two gestures,
+  and didn't require us to specify (and/or train) detection models.
+  Recording a new gesture with the \emph{Circular Measurement} method is as
+  simple as converting the sensor data to data we normally use within the
+  platform, and collecting it to a file to compare new gestures against later.
+
+  We thought implementing a system for this was an awesome challenge to use for
+  gesture recognition.
+
   \subsection{Web interface}
   The platform provides a web interface for control. First of all, this
   interface provides a real-time visualiser for the processed sensor data. To
