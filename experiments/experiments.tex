@@ -76,12 +76,20 @@
   it is accurate and reliable however, then it may prove useful. It may be used
   to conduct research, and can be developed further.
 
+  \subsection*{Hard-coded gestures}
   To test our platform, we came up with a list of predefined gestures. These
   gestures are programmed/\emph{hard-coded} into the platform. This means that the predefined
   gesture is not jittery to begin with, as could be the case with recorded
-  gestures. This is our list of predefined gestures:
+  gestures. This list of gestures can be loaded into the program with the
+  \emph{Load default templates} button in the bottom of the web interface.
+  These gestures are quite simple and show well what is possible with the
+  platform. For this first test, we attempted each gesture 40 times to measure
+  it's detection rate. This, in a randomized order to prevent ourselves from
+  using muscle memory.
+
+  Here is the list of hard-coded gestures:
   \begin{itemize}
-    \tightlist
+    \tightlist{}
     \item Straight line
     \item Circle clockwise
     \item Circle counter-clockwise
@@ -94,49 +102,147 @@
     \item Square counter-clockwise
   \end{itemize}
 
-  When we tested these gestures ourselves, we found that most of them work very
-  well. The \textit{straight line} till the \textit{Big circle counter-clockwise}
-  all work great. This is because the gestures have continual change. That means
-  that the hand or fingers always move in a different direction than before.
+  When we tested these gestures ourselves, the results weren't so surprising
+  after working with the system for many weeks. First of, detecting clockwise
+  versus counter-clockwise gestures is not a problem at all. The platform works
+  well for both, which is logical considering how the internals work.
 
-  Gestures like the \textit{triangle} and \textit{square} work not as good as
-  expected. These gestures have a tendency to not get recognized if the change
-  in the direction is too great or after a long consistent pattern. This is
-  because the gestures programmed into the platform have specific checks for
-  change in directions. If a gesture deviates too much, the entire gesture will
-  not be recognized. This is unfortunate, because that means that the gesture
-  can be performed almost perfectly, only to be messed up at the end, resulting
-  in a failure to recognize the gesture.
+  \paragraph{}
+  The first few gestures work very well. In fact, all attempts for performing
+  these worked and all got recognized correctly. The \emph{Straight line}
+  gesture even got detected with a slight bent in the drawn line. Both circle
+  variants are included too. These are easy and above all very quick to perform.
+  We figured these could be cool for scrolling through a page.
+  A light disadvantage of the line gestures is that because it is so simple, it
+  did get matched against some false positives. When attempting to draw a large
+  square the line gesture was detected twice.
 
-  We have come to these conclusions because we have tested all the gestures 30
-  times each. We wanted to make sure that the recognition worked well, and we
-  therefore did each gesture a lot of times. When we tested the straight line
-  and circle gestures, we got a almost 100\% success rate. The squares and
-  triangles did not so well, with an success rate of almost 60\%. We found out
-  that sometimes, squares would not get recognized a few times in a row. This
-  was probably because of the large space that we would make the gesture in,
-  resulting in a too large window of points for the recognition to handle.
+  The triangle gestures were great as well, although we didn't got them right
+  the first time. Out of the total 80 attempts for each of the two variants, 71
+  got detected properly. Loosening the algorithm might even give us better
+  results.
 
-  % TODO: explain clearly that this is wat we figured because of our findings above
-  We also found out that sharp corners and long gestures don't work very well.
-  Improvement of the gesture recognition could change this in the future.
+  The square gestures were slightly harder. The normal squares had 33 and 34
+  correct hits. The small square had 25 hits. These squares have perfectly
+  straight edges and corners. That might make it harder to perform correctly.
+  What's interesting is that performing the small square was harder than the
+  regular sized squares. Jitter in your finger and the sensor does have a larger
+  effect on small figures, that might be what caused it.
 
-  This means that our gesture recognition can definitely be improved. Comparing
-  gestures based on certain changes on a predefined distance is not effective.
+  \paragraph{}
+  In general the detection for these shapes works surprisingly well to our
+  opinion. The data shows that gestures with sharp corners are slightly harder
+  to draw, probably because it's hard to actually perform a gesture with such
+  sharpness above the sensor. Just to note, we also noticed that performing
+  gestures with your non-dominant hand is slightly harder, although we don't
+  have proper data to substantiate this.
+
+  \subsection*{Custom gestures}
+  Because the system allows you to record your own gestures, and the hard-coded
+  gestures might be a little too perfect, we decided to also manually record
+  each gesture on the list to perform the same test afterwards.
+
+  \paragraph{}
+  Yet again, the line and circle gestures got recognized perfectly for each
+  iteration even though the recordings might not have been perfect.
+
+  There was one exception though, during the performance of one circle gesture
+  the sensor (or our platform) seemed to get stuck for a little. This was shown
+  in the visualizer. Only half of the circle was shown, and it continued with a
+  straight line down. It was as if the circle was cut in half. Because the
+  visualizer showed that the data was incorrect we decided to drop this erroneous
+  iteration.
+
+  \paragraph{}
+  The triangle gesture worked a little better. Maybe this is because it was
+  recorded manually it had rounded and less perfect corners making it easier to
+  perform properly. Out of the 80 total attempts 74 got recognized correctly.
+
+  The custom square gestures proved a similar result, although the result for
+  the small squares was improved slightly from 25 correct attempts to 31.
+
+  \subsection*{Complex gestures}
+  We also decided to attempt more complex gestures. With more complex we mean
+  longer gestures and gestures with complex and sharp angles. We choose the
+  following figures:
+
+  \begin{itemize}
+    \tightlist{}
+    \item A $4\times1$ rectangle
+    \item The number \verb_6_
+    \item The letter \verb_W_
+    \item A clockwise circle with a counter-clockwise circle after it
+    \item The word \verb_hi_ in cursive font
+  \end{itemize}
+
+  The results are a little less great for these figures. First of all, the
+  rectangle. For the 40 attempts we tried it got 26 hits. Apparently it is
+  harder to recognize a big rectangle as compared to a square as tested in a
+  previous test.
+
+  \paragraph{}
+  The number \verb_6_ was perfect as well. It has a similar shape as the circle
+  from previous tests of course, so this isn't too surprising.
+  We did thought about the following thought during this test: with the current
+  algorithm it is not possible to also define a gesture for the number \verb_9_
+  because it has the exact same shape but in a different orientation.
+
+  \paragraph{}
+  The \verb_W_ shape showed the first signs of trouble. To given an idea, it got
+  detected 12 times out of 40 tries. The algorithm isn't optimized for this
+  shape, apparently.
+
+  We think this has to do with the sharp corners this shape
+  has. For each new data point our algorithm compares the current shape to all
+  known (defined) gestures. This is done by walking through both the current and
+  the defined gestures. Once they start to differentiate too much the option for
+  that gesture is dropped. We believe the sharp angles in this character might
+  cause the algorithm to think the difference is too big. You aren't able to
+  draw it perfectly every time, of course. The logic is a bit more complex than
+  this, but this should give a general idea of how it works and what we think is
+  causing the dropped detection rates. The algorithm also has some play when
+  comparing rotations, maybe the algorithm starts comparing the wrong rotation
+  points further into the trace when the scan points start to deviate too much.
+  This could result into inconsistent results as well.
+
+  The decision whether a gesture, or rather a trace of rotations, differentiates
+  too much is defined by some constants defined in the \verb_config.rs_ file in
+  source-code. We did increase the threshold and some other relevant parameters
+  a little which did seem to improve the results a bit. We didn't investigate
+  further though due to time constraints and reverted the parameters to ensure
+  following tests are consistent. It might be interesting for other groups to
+  take a look at this.
+
+  \paragraph{}
+  The gesture with two circles worked very well too. No further comment on this.
+
+  \paragraph{}
+  The word \verb_hi_, of course a very optimistic gesture, didn't work at all.
+  Out of 40 attempts only 1 got recognized correctly. The algorithm is at fault
+  for sure, because the figure did show up correctly in the 2D web visualizer.
+
+  One might argue that you shouldn't expect too complex gestures to be
+  recognized correctly, especially not for a first iteration of the project. But
+  we thought we had to try it anyway.
+
+  \subsection*{Conclusion}
+  These results means that our gesture recognition can definitely be improved.
   We need to improve the gesture recognition in order to implement even more
-  complex gestures.
+  complex gestures. This would all be software improvements, so no new hardware
+  is required for now.
 
   Some properties of the current gesture recognition can be altered in the
-  \textit{config.rs} file. By including a larger amount of points in a match
-  group/scope, failure to recognize a gesture will be lower. This is because
-  there will be more points, and more room for deviation from the predefined
-  gesture. Following this approach would allow more false positives though.
+  \textit{config.rs} file as mentioned. By including a larger amount of points
+  in a match group/scope, failure to recognize a gesture will be lower.
+  This is because there will be more points, and more room for deviation from
+  the predefined gesture. Following this approach would allow more false positives though.
 
   \clearpage
 
   \section*{Gesture variety}
   For building a proper gesture based system, we think it is important to
-  support as many gestures as possible. If you're binding gestures to actions on
+  support as many gestures as possible. The current predefined set is of course
+  lacking. If you're binding gestures to actions on
   a computer, you probably want to do as much different things as possible with
   a little difficult gestures as possible. We'll now attempt to define what
   variety of gestures is possible with our current implementation.
@@ -185,25 +291,36 @@
   good enough highly depends on the use case for the product.
   % TODO: should have a better story here
 
-  \subsection*{TODO: Computer control}
-  % TODO: - do we think the current system supports enough to control a computer
+  \subsection*{Computer control}
   Now, the initial goal of the platform was to develop a platform that would be
   able to fully control a computer using only gestures. We currently don't think
-  that that is possible, let alone viable. This is a list of problems that would
-  have to be resolved in order for the platform to become viable:
+  that that is possible, let alone viable.
+  Yes, scrolling up and down by drawing circles left or right would be awesome.
+  But these gestures don't cover simple tasks like moving the mouse around.
+  It shouldn't be too hard to implement mouse movement based on the location of
+  a hand in 3D space, but this falls out of the scope of this project for now.
+
+  \paragraph{}
+  There are some problems that would have to be resolved in order for the
+  platform to become viable as a computer controlling solution. We've formulated
+  a list:
 
   \begin{itemize}
     \tightlist
-    \item Not all gestures are recognized properly.
-    \item Gestures do not support multiple fingers
-    \item The predefined gestures are limited
+    \item Only simple gestures get recognized very well, limiting the number of
+      usable and reliable gestures
+    \item With a system that is purely gesture based, you'd need to have a lot
+      of different gestures to make it usable so you don't have to go through
+      menus of actions
+    \item Gestures do not support multiple fingers, yet
     \item New recorded gestures could be jittery, resulting in a low recognition
       rate
     \item Execution of computer actions would probably slower than using a
       keyboard and mouse
+    \item The current implementation is hard to set-up
   \end{itemize}
 
-  We know that this is a lot to ask for, but if we would be able to solve these
+  We know that resolving these issues is a lot to ask for, but if we would be able to solve these
   problems we could have built a revolutionary new platform.
 
   \subsection*{Improve}
@@ -215,6 +332,13 @@
   than needing to have improved hardware. Think of changes in the algorithm and
   processing logic to allow more advanced figures. We'll go over ideas for
   improvement in the \emph{Ideas} section, the last section in this document.
+
+  \subsection*{Simple applications}
+  So, we don't think it is viable for computer control. There might be
+  applications though with just 4 different simple one-shot actions.
+  Yes, for such applications this could be used perfectly well. Drawing circles,
+  lines and squares works good enough for sure. Think of scrolling through
+  pictures in a sterile environment where touchless interaction is desired.
 
   \clearpage
 
@@ -298,15 +422,6 @@
   users that don't understand the internals of the system might experience this
   different. The second visualizer in the web interface shows processed data,
   this might look weird and unintuitive for other users.
-
-  \clearpage
-
-  \section*{TODO: Recognition consistency}
-  % TODO: we aren't performing gesture many times to improve accuracy
-  It is important that all gestures are successfully performed and can be recognized
-  multiple times. This is because recognizing gestures can be error-prone. By
-  performing gestures often, the risk of it recognizing a gesture incorrectly
-  decreases dramatically.
 
   \clearpage
 
