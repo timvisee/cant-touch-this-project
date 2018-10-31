@@ -108,6 +108,15 @@
   can be performed almost perfectly, only to be messed up at the end, resulting
   in a failure to recognize the gesture.
 
+  We have come to these conclusions because we have tested all the gestures 30
+  times each. We wanted to make sure that the recognition worked well, and we
+  therefore did each gesture a lot of times. When we tested the straight line
+  and circle gestures, we got a almost 100\% success rate. The squares and
+  triangles did not so well, with an success rate of almost 60\%. We found out
+  that sometimes, squares would not get recognized a few times in a row. This
+  was probably because of the large space that we would make the gesture in,
+  resulting in a too large window of points for the recognition to handle.
+
   % TODO: explain clearly that this is wat we figured because of our findings above
   We also found out that sharp corners and long gestures don't work very well.
   Improvement of the gesture recognition could change this in the future.
