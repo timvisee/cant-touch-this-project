@@ -63,12 +63,16 @@
   \clearpage
 
   \section*{Accuracy \& Reliability}
-  % TODO: how accurate is gesture detection
-  % TODO: define a list of gestures to test
-  % TODO: what gestures work, what gestures don't work (which are easy / hard)
-  % TODO: what are our findings? (long gestures with sharp corners are often not
-  % recognized) Why could this be the case?
+  The accuracy and reliability of the gesture recognition is crucial to the
+  succes of the platform. If it proves to be insufficient, then the platform is
+  obsolete. No one will use it and time spent developing it will be wasted. If
+  it is accurate and reliable however, then it may prove useful. It may be used
+  to conduct futher research, and can be developed further.
 
+  To test our platform, we came up with a list of predefined gestures. These
+  gestures are programmed into the platform. This means that the predefined
+  gesture is not jittery to begin with, as could be the case with recorded
+  gestures. This is our list of predefined gestures:
   \begin{itemize}
     \tightlist
     \item Straight line
@@ -82,6 +86,25 @@
     \item Square clockwise
     \item Square counter-clockwise
   \end{itemize}
+
+  When we tested these gestures ourselves, we found that most of them work very
+  well. The \textit{straight line} till the \textit{Big circle counter-clockwise}
+  all work great. This is because the gestures have continual change. That means
+  that the hand or fingers always move in a different direction than before.
+
+  Gestures like the \textit{triangle} and \textit{square} work not as good as
+  expected. These gestures have a tendency to not get recognized if the change
+  in the direction is too great or after a long consistent pattern. This is
+  because the gesture programmed into the platform has a specific check for
+  change in directions. If the gesture deviates too much, the entire gesture
+  will not be recognized. This is unfortunate, because that means that the
+  gesture can be performed almost perfectly, only to be messed up at the end,
+  resulting in a failure to recognize the gesture.
+
+  This means that our gesture recognition can definitely be improved. Comparing
+  gestures based on certain changes on a predefined distance is not effective.
+  This means that the recognition has to be improved in order to implement even
+  more complicated gestures.
 
   \section*{Gesture variety}
   % TODO: what gestures could be made
