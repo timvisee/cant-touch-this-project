@@ -52,13 +52,20 @@
   experiments is to assert whether the current platform is \emph{usable} for
   the purpose we had originally in mind, namely controlling a generic computer.
 
-  You may of course conduct similar experiments as we've described along with
-  reading this document. Make sure you read the \emph{Manual} on how to install
-  and use the product.
+  Although we've tested the platform quite thoroughly while building it, these
+  experiments are conducted on the final version of the platform we've worked on
+  with properly detected experiments and findings. With this we'll attempt to
+  also answer some seemingly obvious thoughts.
 
+  \paragraph{}
   The last part of the document goes over some ideas we came up with when
   working on on the project, and when conducting these experiments. These
   ideas may be implemented by others that continue the work on this project.
+
+  \paragraph{}
+  You may of course conduct similar experiments as we've described along with
+  reading this document. Make sure you read the \emph{Manual} on how to install
+  and use the product.
 
   \clearpage
 
@@ -70,7 +77,7 @@
   to conduct research, and can be developed further.
 
   To test our platform, we came up with a list of predefined gestures. These
-  gestures are programmed into the platform. This means that the predefined
+  gestures are programmed/\emph{hard-coded} into the platform. This means that the predefined
   gesture is not jittery to begin with, as could be the case with recorded
   gestures. This is our list of predefined gestures:
   \begin{itemize}
@@ -101,29 +108,76 @@
   can be performed almost perfectly, only to be messed up at the end, resulting
   in a failure to recognize the gesture.
 
+  % TODO: explain clearly that this is wat we figured because of our findings above
+  We also found out that sharp corners and long gestures don't work very well.
+  Improvement of the gesture recognition could change this in the future.
+
   This means that our gesture recognition can definitely be improved. Comparing
   gestures based on certain changes on a predefined distance is not effective.
   We need to improve the gesture recognition in order to implement even more
   complex gestures.
 
-  The current gesture recognition can be altered using the \textit{config.rs}
-  file. By including a larger amount of points in scope, failure to recognize a
+  Some properties of the current gesture recognition can be altered in the \textit{config.rs}
+  file. By including a larger amount of points in a match group/scope, failure to recognize a
   gesture will be lower. This is because there will be more points, and more
-  room for deviation from the predefined gesture.
+  room for deviation from the predefined gesture. Following this approach would
+  allow more false positives though.
 
   \clearpage
 
   \section*{Gesture variety}
-  Currently the gestures are very limited. It, for now, only features one
-  finger. This may be confusing, because multiple fingers are visualized on the
-  canvas. The visualized fingers are only that, visualized. It does not affect
-  any gesture at the time. This could be a great opportunity to improve the
-  complexity and depth of the platform. If multiple fingers are combined in
-  gestures, then it could mean a plethora of new possibilities.
+  For building a proper gesture based system, we think it is important to
+  support as many gestures as possible. If you're binding gestures to actions on
+  a computer, you probably want to do as much different things as possible with
+  a little difficult gestures as possible. We'll now attempt to define what
+  variety of gestures is possible with our current implementation.
 
-  We also found out that sharp corners and long gestures don't work very well.
-  Improvent of the gesture recognition could change this in the future.
+  \paragraph{}
+  The platform currently has support for tracking gestures based on movements
+  with the tip of the index finger. This already limits the number of gesture
+  possibilities quite severely. You basically need to use your finger as a pen
+  or wand to literally draw a shape.
 
+  In addition, recorded sensor data is currently being processed into a 2D
+  representation. This means that it is currently not possible to define 3D
+  aware gestures.
+
+  \paragraph{}
+  As shown in the previous experiment, large gestures or gestures with sharp
+  corners don't work to well yet with the current algorithm without tweaks.
+
+  \subsection*{Supported}
+  When only defining basic gestures, we could think of the following gesture
+  types:
+
+  \begin{itemize}
+    \tightlist
+    \item Circle
+    \item Line
+    \item Square
+    \item Rectangle, in various shapes
+    \item Triangle
+    \item Simple/distinct numbers: 2, 3, 6, 7
+    \item Simple/distinct letters: C, D, J\dots
+    \item \dots
+  \end{itemize}
+
+  Each figure can have some variations:
+  \begin{itemize}
+    \tightlist
+    \item Various figure scales, larger and smaller variants
+    \item Use both clockwise and counter-clockwise variants
+    \item Scale in one dimension, use an oval instead of a circle
+  \end{itemize}
+
+  The list is limited, and some variations might collide resulting in false
+  positives. Implementing 10 different gestures is however easily doable, as the
+  built-in list of gestures does confirm. The question of whether the variety is
+  good enough highly depends on the use case for the product.
+  % TODO: should have a better story here
+
+  \subsection*{TODO: Computer control}
+  % TODO: - do we think the current system supports enough to control a computer
   Now, the initial goal of the platform was to develop a platform that would be
   able to fully control a computer using only gestures. We currently don't think
   that that is possible, let alone viable. This is a list of problems that would
@@ -141,7 +195,17 @@
   \end{itemize}
 
   We know that this is a lot to ask for, but if we would be able to solve these
-  problems we'd have built a revolutionary new platform.
+  problems we could have built a revolutionary new platform.
+
+  \subsection*{Improve}
+  To improve the results of this test, we believe that additional features need
+  to be developed in the platform which does take some time. Think of supporting
+  gestures consisting of multiple fingers or even hands, or supporting 3D
+  gestures. If multiple fingers are combined in gestures, then it could mean a
+  plethora of new possibilities. Improvements would mostly consist of software improvements rather
+  than needing to have improved hardware. Think of changes in the algorithm and
+  processing logic to allow more advanced figures. We'll go over ideas for
+  improvement in the \emph{Ideas} section, the last section in this document.
 
   \clearpage
 
@@ -176,7 +240,7 @@
   recognize them correctly. This same visualizer is used for recording and
   trimming new gestures.
 
-  \subsection*{Results}
+  \subsection*{Findings}
   For this test we've tried a lot of different gestures, in a lot of different
   positions. Here are some of our statements on our findings:
 
@@ -204,6 +268,7 @@
       recognition.
   \end{itemize}
 
+  \subsection*{Conclusion}
   Based on these statements we can conclude that using a visualizer is a good
   idea, as it does seem to improve results for most gestures. There are gestures
   however that don't really benefit from using a visualizer. Such gestures can
@@ -303,6 +368,7 @@
   being the trace drawn by the index finger of a hand. The first logical
   expansion would of course be to support gestures having motions with 5
   fingers. Sadly, due to time constraints, we couldn't implement this.
+  This could be a great opportunity to improve the complexity and depth of the platform.
 
   Our guess is that implementing this isn't too hard when using the same
   detection system as our current platform. The implementation might be as easy
