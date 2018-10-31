@@ -113,7 +113,7 @@
   Because some manual work is required for this, we've created a simple
   installation script (that is also used in the Continuous Integration
   environment), and we recommend to use this script. To do this, first clone our
-  project repository. Then navigate into the \verb_ci_ directory, and run the
+  project repository. Then navigate into the \verb_ci_ directory, and invoke the
   \verb`install_sdk` script:
   \lstinputlisting[
     language=sh,
@@ -148,6 +148,54 @@
 
   \paragraph{}
   Again, be sure to read the included \verb_README_ for up-to-date instructions.
+
+  \subsubsection{Build \& run platform}
+  Now you've set up the sources for the platform, and build it from source.
+
+  To start, clone the project repository on your machine. See:
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Clone the platform sources
+    },
+  ]{listings/git-clone-project.sh}
+
+  Once cloned and switched into the directory, you can start using Rust to build
+  the project. It is recommended to check whether the project compiles first.
+  For that, use the following command:
+
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Test compilation
+    },
+  ]{listings/cargo-check.sh}
+
+  On success, you can start building the project. There are two variants. By
+  default a \verb_debug_ version is built, this includes information for
+  debugging. You can also build a \verb_release_ version using the
+  \verb_--release_ flag. These release builds are faster, however; at the
+  moment of writing there seems to be a problem in Rust nightly that is causing
+  \verb_release_ builds to crash (to segfault, to be exact). You should probably
+  test a \verb_release_ build first, and fallback to a \verb_debug_ build if it
+  crashes. Using a \verb_debug_ build doesn't matter too much in this case.
+
+  Using \verb_cargo_ you can \verb_build_ and \verb_run_ a Rust project. Build
+  does only build the binary, which you can manually invoke later. \verb_run_
+  does build the project first, and runs it afterwards. This is probably what
+  you want to use. Note that building the project for the first time
+  (especially in \verb_release_ mode) might take some minutes.
+  See the following example commands:
+
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Test compilation
+    },
+  ]{listings/cargo-run.sh}
+
+  Congratulations! If everything works well you should now have the project up
+  and running.
 
   \subsection{External resources}
   No additonal resources are required to run the \textit{Can't Touch This}
