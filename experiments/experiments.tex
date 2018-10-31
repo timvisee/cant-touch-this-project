@@ -70,12 +70,16 @@
   \clearpage
 
   \section*{Accuracy \& Reliability}
-  % TODO: how accurate is gesture detection
-  % TODO: define a list of gestures to test
-  % TODO: what gestures work, what gestures don't work (which are easy / hard)
-  % TODO: what are our findings? (long gestures with sharp corners are often not
-  % recognized) Why could this be the case?
+  The accuracy and reliability of the gesture recognition is crucial to the
+  succes of the platform. If it proves to be insufficient, then the platform is
+  obsolete. No one will use it and time spent developing it will be wasted. If
+  it is accurate and reliable however, then it may prove useful. It may be used
+  to conduct further research, and can be developed further.
 
+  To test our platform, we came up with a list of predefined gestures. These
+  gestures are programmed/\emph{hard-coded} into the platform. This means that the predefined
+  gesture is not jittery to begin with, as could be the case with recorded
+  gestures. This is our list of predefined gestures:
   \begin{itemize}
     \tightlist
     \item Straight line
@@ -89,6 +93,37 @@
     \item Square clockwise
     \item Square counter-clockwise
   \end{itemize}
+
+  When we tested these gestures ourselves, we found that most of them work very
+  well. The \textit{straight line} till the \textit{Big circle counter-clockwise}
+  all work great. This is because the gestures have continual change. That means
+  that the hand or fingers always move in a different direction than before.
+
+  Gestures like the \textit{triangle} and \textit{square} work not as good as
+  expected. These gestures have a tendency to not get recognized if the change
+  in the direction is too great or after a long consistent pattern. This is
+  because the gesture programmed into the platform has a specific check for
+  change in directions. If the gesture deviates too much, the entire gesture
+  will not be recognized. This is unfortunate, because that means that the
+  gesture can be performed almost perfectly, only to be messed up at the end,
+  resulting in a failure to recognize the gesture.
+
+  % TODO: explain clearly that this is wat we figured because of our findings above
+  We also found out that sharp corners and long gestures don't work very well.
+  Improvement of the gesture recognition could change this in the future.
+
+  This means that our gesture recognition can definitely be improved. Comparing
+  gestures based on certain changes on a predefined distance is not effective.
+  This means that the recognition has to be improved in order to implement even
+  more complicated gestures.
+
+  Some properties of the current gesture recognition can be altered in the \textit{config.rs}
+  file. By including a larger amount of points in a match group/scope, failure to recognize a
+  gesture will be lower. This is because there will be more points, and more
+  room for deviation from the predefined gesture. Following this approach would
+  allow more false positives though.
+
+  \clearpage
 
   \section*{Gesture variety}
   For building a proper gesture based system, we think it is important to
@@ -143,12 +178,31 @@
 
   \subsection*{TODO: Computer control}
   % TODO: - do we think the current system supports enough to control a computer
+  Now, the initial goal of the platform was to develop a platform that would be
+  able to fully control a computer using only gestures. We currently don't think
+  that that is possible, let alone viable. This is a list of problems that would
+  have to be resolved in order for the platform to become viable:
+
+  \begin{itemize}
+    \tightlist
+    \item Not all gestures are recognized properly.
+    \item Gestures do not support multiple fingers
+    \item The predefined gestures are limited
+    \item New recorded gestures could be jittery, resulting in a low recognition
+      rate
+    \item Execution of computer actions would probably slower than using a
+      keyboard and mouse
+  \end{itemize}
+
+  We know that this is a lot to ask for, but if we would be able to solve these
+  problems we could have built a revolutionary new platform.
 
   \subsection*{Improve}
   To improve the results of this test, we believe that additional features need
   to be developed in the platform which does take some time. Think of supporting
   gestures consisting of multiple fingers or even hands, or supporting 3D
-  gestures. Improvements would mostly consist of software improvements rather
+  gestures. If multiple fingers are combined in gestures, then it could mean a
+  plethora of new possibilities. Improvements would mostly consist of software improvements rather
   than needing to have improved hardware. Think of changes in the algorithm and
   processing logic to allow more advanced figures. We'll go over ideas for
   improvement in the \emph{Ideas} section, the last section in this document.
@@ -314,6 +368,7 @@
   being the trace drawn by the index finger of a hand. The first logical
   expansion would of course be to support gestures having motions with 5
   fingers. Sadly, due to time constraints, we couldn't implement this.
+  This could be a great opportunity to improve the complexity and depth of the platform.
 
   Our guess is that implementing this isn't too hard when using the same
   detection system as our current platform. The implementation might be as easy
