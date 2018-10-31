@@ -81,7 +81,19 @@
   no native LeapMotion library available for use with this language. Therefore
   we were required to use and develop a custom wrapper to translate parts of the
   provided library to something Rust supports, essentially being a Rust library.
-  Our implementation is based on the open-source \verb_leap-rs_ project.
+  Our implementation is based on the open-source
+  \href{https://github.com/panicbit/leap-rs}{leap-rs} project. This was the only
+  Rust implementation of code that could talk to the LeapMotion library we could
+  find.
+
+  Because it was quite limited, we did
+  \href{https://github.com/timvisee/leap-rs}{fork}
+  the project to extend it with new functionality required for our project.
+  For example, we added support for obtaining finger data being part of a hand.
+  This allowed us to check what fingers were in view, what fingers were extended
+  and so on.
+  We did push our improvements to the upstream project, which were accepted and
+  \href{https://github.com/panicbit/leap-rs/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+author%3Atimvisee}{merged}!
 
   \subsection{Sensor Controller}
   Our software, the respective platform, talks to the LeapMotion daemon being
