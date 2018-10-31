@@ -91,11 +91,67 @@
   \end{itemize}
 
   \section*{Gesture variety}
-  % TODO: what gestures could be made
-  % TODO: - can only use one finger, greatly limits possibilities
-  % TODO: - we found out: sharp corners and long gestures don't work
+  For building a proper gesture based system, we think it is important to
+  support as many gestures as possible. If you're binding gestures to actions on
+  a computer, you probably want to do as much different things as possible with
+  a little difficult gestures as possible. We'll now attempt to define what
+  variety of gestures is possible with our current implementation.
+
+  \paragraph{}
+  The platform currently has support for tracking gestures based on movements
+  with the tip of the index finger. This already limits the number of gesture
+  possibilities quite severely. You basically need to use your finger as a pen
+  or wand to literally draw a shape.
+
+  In addition, recorded sensor data is currently being processed into a 2D
+  representation. This means that it is currently not possible to define 3D
+  aware gestures.
+
+  \paragraph{}
+  As shown in the previous experiment, large gestures or gestures with sharp
+  corners don't work to well yet with the current algorithm without tweaks.
+
+  \subsection*{Supported}
+  When only defining basic gestures, we could think of the following gesture
+  types:
+
+  \begin{itemize}
+    \tightlist
+    \item Circle
+    \item Line
+    \item Square
+    \item Rectangle, in various shapes
+    \item Triangle
+    \item Simple/distinct numbers: 2, 3, 6, 7
+    \item Simple/distinct letters: C, D, J\dots
+    \item \dots
+  \end{itemize}
+
+  Each figure can have some variations:
+  \begin{itemize}
+    \tightlist
+    \item Various figure scales, larger and smaller variants
+    \item Use both clockwise and counter-clockwise variants
+    \item Scale in one dimension, use an oval instead of a circle
+  \end{itemize}
+
+  The list is limited, and some variations might collide resulting in false
+  positives. Implementing 10 different gestures is however easily doable, as the
+  built-in list of gestures does confirm. The question of whether the variety is
+  good enough highly depends on the use case for the product.
+  % TODO: should have a better story here
+
+  \subsection*{TODO: Computer control}
   % TODO: - do we think the current system supports enough to control a computer
-  % TODO: - what can we improve? (improve detection system, and how)
+
+  \subsection*{Improve}
+  To improve the results of this test, we believe that additional features need
+  to be developed in the platform which does take some time. Think of supporting
+  gestures consisting of multiple fingers or even hands, or supporting 3D
+  gestures. Improvements would mostly consist of software improvements rather
+  than needing to have improved hardware. Think of changes in the algorithm and
+  processing logic to allow more advanced figures. We'll go over ideas for
+  improvement in the \emph{Ideas} section, the last section in this document.
 
   \clearpage
 
