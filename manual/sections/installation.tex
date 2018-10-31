@@ -59,6 +59,24 @@
     },
   ]{listings/rust-version.sh}
 
+  \paragraph{Nightly}
+  Because this project currently requires a Rust nightly version due to the
+  \verb_Rocket_ crate (library), it might break in future Rust versions. The
+  last Rust version we've tried to be working successfully is
+  \verb_2018-10-30_. Generally speaking, if the project compiles, it works. If
+  it doesn't, switch to this version using the following commands:
+
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Switch to old Rust nightly
+    },
+  ]{listings/old-nightly.sh}
+
+  You can always check what the last successful Continuous Integration build
+  was \href{https://gitlab.com/timvisee/cant-touch-this/pipelines}{here},
+  and use that Rust version.
+
   \subsubsection{Install Cmake and pkg-config}
   How to install \verb_Cmake_ and \verb_pkg-config_ falls outside the scope of
   this manual and varies greatly between platform and version.
@@ -86,31 +104,49 @@
   want to be able to build the platform from source, make sure you also install
   the SDK files.
 
-\paragraph{Linux \& macOS}
-  Installing the SDK on Linux or macOS requires a little bit more manual work.
+  \paragraph{Linux \& macOS}
+  Installing the SDK on Linux or macOS requires a little bit more work.
   First install the LeapMotion daemon and control panel using the installer
-  provided in the ZIP file from their website.
-  The following library files must be moved to their respective location on your
-  machine:
+  provided in the ZIP file from their website. Then the library files must be
+  installed.
+
+  Because some manual work is required for this, we've created a simple
+  installation script (that is also used in the Continuous Integration
+  environment), and we recommend to use this script. To do this, first clone our
+  project repository. Then navigate into the \verb_ci_ directory, and run the
+  \verb`install_sdk` script:
+  \lstinputlisting[
+    language=sh,
+    caption={%
+      Install the LeapMotion SDK library files with script
+    },
+  ]{listings/leap-motion-lib-auto-install.sh}
+  You may also inspect this script to do each step manually. It can also be
+  found \href{https://gitlab.com/timvisee/cant-touch-this/blob/ece65fab15b3c088e57628dc0c82474efddbbfd2/ci/install_sdk}{here}.
+
+  \paragraph{}
+  Alternatively you can manually install these files. For this, you must move the library
+  files into the respective location on your machine.
   \lstinputlisting[
     language=sh,
     caption={%
       Copy and install LeapMotion library files
     },
-  ]{listings/install-leap-motion.sh}
+  ]{listings/leap-motion-lib-manual-copy.sh}
 
   The installed \verb_pkg-config_ tool is used to tell the compiler where the
   library installed. For this, a \verb_pkg-config_ configuration file must be
   created. An example can be found in the project repository
   \href{https://gitlab.com/timvisee/cant-touch-this/blob/ece65fab15b3c088e57628dc0c82474efddbbfd2/ci/libleap.pc}{here}.
   Name it \verb_libleap.pc_ and place it at
-  \verb_/usr/lib/pkgconfig/libleap.pc_.
+  \verb_/usr/lib/pkgconfig/libleap.pc_. If you've used the \verb`install_sdk`
+  script this is already done for you.
 
-  For additional help and information; the \verb`install_sdk` script used on
-  the Continuous Integration environment defines quite well wat must be done
-  to install the SDK, check it out in the project repository
-  \href{https://gitlab.com/timvisee/cant-touch-this/blob/ece65fab15b3c088e57628dc0c82474efddbbfd2/ci/install_sdk}{here}.
+  To validate that the \verb_pkg-config_ configuration file was installed
+  correctly, run the command \verb_pkg-config --libs libleap_. This should
+  report \verb_-lLeap_.
 
+  \paragraph{}
   Again, be sure to read the included \verb_README_ for up-to-date instructions.
 
   \subsection{External resources}
