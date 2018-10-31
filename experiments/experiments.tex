@@ -241,7 +241,8 @@
 
   \section*{Gesture variety}
   For building a proper gesture based system, we think it is important to
-  support as many gestures as possible. If you're binding gestures to actions on
+  support as many gestures as possible. The current predefined set is of course
+  lacking. If you're binding gestures to actions on
   a computer, you probably want to do as much different things as possible with
   a little difficult gestures as possible. We'll now attempt to define what
   variety of gestures is possible with our current implementation.
@@ -290,25 +291,32 @@
   good enough highly depends on the use case for the product.
   % TODO: should have a better story here
 
-  \subsection*{TODO: Computer control}
-  % TODO: - do we think the current system supports enough to control a computer
+  \subsection*{Computer control}
   Now, the initial goal of the platform was to develop a platform that would be
   able to fully control a computer using only gestures. We currently don't think
-  that that is possible, let alone viable. This is a list of problems that would
-  have to be resolved in order for the platform to become viable:
+  that that is possible, let alone viable.
+  Yes, scrolling up and down by drawing circles left or right would be awesome.
+  But these gestures don't cover simple tasks like moving the mouse around.
+  It shouldn't be too hard to implement mouse movement based on the location of
+  a hand in 3D space, but this falls out of the scope of this project for now.
+
+  \paragraph{}
+  There are some problems that would have to be resolved in order for the
+  platform to become viable as a computer controlling solution. We've formulated
+  a list:
 
   \begin{itemize}
     \tightlist
-    \item Not all gestures are recognized properly.
-    \item Gestures do not support multiple fingers
-    \item The predefined gestures are limited
+    \item Only simple gestures get recognized very well, limiting the number of
+      usable and reliable gestures
+    \item Gestures do not support multiple fingers, yet
     \item New recorded gestures could be jittery, resulting in a low recognition
       rate
     \item Execution of computer actions would probably slower than using a
       keyboard and mouse
   \end{itemize}
 
-  We know that this is a lot to ask for, but if we would be able to solve these
+  We know that resolving these issues is a lot to ask for, but if we would be able to solve these
   problems we could have built a revolutionary new platform.
 
   \subsection*{Improve}
@@ -320,6 +328,13 @@
   than needing to have improved hardware. Think of changes in the algorithm and
   processing logic to allow more advanced figures. We'll go over ideas for
   improvement in the \emph{Ideas} section, the last section in this document.
+
+  \subsection*{Simple applications}
+  So, we don't think it is viable for computer control. There might be
+  applications though with just 4 different simple one-shot actions.
+  Yes, for such applications this could be used perfectly well. Drawing circles,
+  lines and squares works good enough for sure. Think of scrolling through
+  pictures in a sterile environment where touchless interaction is desired.
 
   \clearpage
 
@@ -403,15 +418,6 @@
   users that don't understand the internals of the system might experience this
   different. The second visualizer in the web interface shows processed data,
   this might look weird and unintuitive for other users.
-
-  \clearpage
-
-  \section*{TODO: Recognition consistency}
-  % TODO: we aren't performing gesture many times to improve accuracy
-  It is important that all gestures are successfully performed and can be recognized
-  multiple times. This is because recognizing gestures can be error-prone. By
-  performing gestures often, the risk of it recognizing a gesture incorrectly
-  decreases dramatically.
 
   \clearpage
 
