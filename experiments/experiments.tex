@@ -111,12 +111,37 @@
   gesture will be lower. This is because there will be more points, and more
   room for deviation from the predefined gesture.
 
+  \clearpage
+
   \section*{Gesture variety}
-  % TODO: what gestures could be made
-  % TODO: - can only use one finger, greatly limits possibilities
-  % TODO: - we found out: sharp corners and long gestures don't work
-  % TODO: - do we think the current system supports enough to control a computer
-  % TODO: - what can we improve? (improve detection system, and how)
+  Currently the gestures are very limited. It, for now, only features one
+  finger. This may be confusing, because multiple fingers are visualized on the
+  canvas. The visualized fingers are only that, visualized. It does not affect
+  any gesture at the time. This could be a great opportunity to improve the
+  complexity and depth of the platform. If multiple fingers are combined in
+  gestures, then it could mean a plethora of new possibilities.
+
+  We also found out that sharp corners and long gestures don't work very well.
+  Improvent of the gesture recognition could change this in the future.
+
+  Now, the initial goal of the platform was to develop a platform that would be
+  able to fully control a computer using only gestures. We currently don't think
+  that that is possible, let alone viable. This is a list of problems that would
+  have to be resolved in order for the platform to become viable:
+
+  \begin{itemize}
+    \tightlist
+    \item Not all gestures are recognized properly.
+    \item Gestures do not support multiple fingers
+    \item The predefined gestures are limited
+    \item New recorded gestures could be jittery, resulting in a low recognition
+      rate
+    \item Execution of computer actions would probably slower than using a
+      keyboard and mouse
+  \end{itemize}
+
+  We know that this is a lot to ask for, but if we would be able to solve these
+  problems we'd have built a revolutionary new platform.
 
   \clearpage
 
