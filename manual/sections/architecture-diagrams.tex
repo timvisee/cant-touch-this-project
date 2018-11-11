@@ -3,7 +3,7 @@
 \usepackage{siunitx}
 
 \begin{document}
-  \section{Architecture Diagrams}
+  \section{Architecture}
   In this diagram, the \textit{Can't Touch This} platform displayed globally.
   It shows three main objects:
   \begin{itemize}
@@ -28,7 +28,13 @@
   this machine uses this visual data to detect hands a user is hovering above
   the sensor.
 
-  \subsection{LeapMotion SDK}
+  \subsection{Library}
+  In this section we describe what external components the application consists
+  off to use the LeapMotion sensor.
+  These are software parts required for the platform to work, but aren't
+  part of the software application we developed itself.
+
+  \subsubsection{LeapMotion SDK}
   This LeapMotion SDK consists of various components, as listed below:
   \begin{itemize}
     \tightlist{}
@@ -54,7 +60,7 @@
   Along with the named components above, documentation and some examples are
   included as well.
 
-  \subsection{Rust \& Wrapper}
+  \subsubsection{Rust \& Wrapper}
   We've decided to write our platform in the Rust programming language. There is
   no native LeapMotion library available for use with this language. Therefore
   we were required to use and develop a custom wrapper to translate parts of the
@@ -73,7 +79,19 @@
   We did push our improvements to the upstream project, which were accepted and
   \href{https://github.com/panicbit/leap-rs/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+author%3Atimvisee}{merged}!
 
-  \subsection{Sensor Controller}
+  \begin{figure}[h]
+    \centering
+      \includegraphics[width=\linewidth]{functional-diagram}
+    \caption{Functional Diagram}
+    \label{fig:pipeline-diagram}
+  \end{figure}
+
+  \subsection{Application}
+  In this section we go over the different components inside the application.
+  These components are better shown in the functional diagram,
+  figure \ref{fig:pipeline-diagram}.
+
+  \subsubsection{Sensor Controller}
   Our software, the respective platform, talks to the LeapMotion daemon being
   part of the LeapMotion SDK to obtain data from the sensor. This is done in the
   \verb_SensorController_ shown in the figure above. Note that the figure
@@ -82,17 +100,10 @@
   \verb_the pipeline_ within our platform. This pipeline is a virtual concept
   for how data flows through our program, from raw sensor data to gesture
   detection.
-  Figure~\ref{fig:pipeline-diagram} (functional diagram) illustrates this in
+  Figure~\ref{fig:pipeline-diagram} illustrates this in
   better detail.
 
-  \begin{figure}[h]
-    \centering
-      \includegraphics[width=\linewidth]{functional-diagram}
-    \caption{Functional Diagram}
-    \label{fig:pipeline-diagram}
-  \end{figure}
-
-  \subsection{Fragment Manager}
+  \subsubsection{Fragment Manager}
   The \verb_SensorController_ controls any connected sensors and attempts to
   collect sensor data, which it passes on to the \verb_FragmentManager_. This
   manager organizes and tracks sensor data. Raw incomming coordinate data is
@@ -103,7 +114,7 @@
   something we can easily use further down the \verb_pipeline_. In our case, we
   resample, scale, filter and map 3D point data into rotational point data.
 
-  \subsubsection{Resample}
+  \paragraph{Resample}
   The LeapMotion sensor reports hand coordinate updates at varying rates, while
   the sensor is used. This causes collected 3D point data to have greatly
   varying distances between points, which makes further using the data quite a
@@ -119,7 +130,7 @@
   for easy comparison later on in the pipeline when attempting to detect
   gestures.
 
-  \subsubsection{Rotational trace}
+  \paragraph{Rotational trace}
   Lastly, we map the new list of 3D points into rotational data. To achieve
   this, we calculate the angle in 2D space between all 3D points. For each of
   these angles we determine the difference to define a new list of points having
@@ -128,7 +139,7 @@
   thus we throw away the 3D coordinate data and are left with a trace of
   rotational points.
 
-  \subsubsection{Example}
+  \paragraph{Example}
   To better illustrate the result data, here we'll go through two examples.
   Imagine drawing a perfectly straight line, this would map into a list of
   rotational points all having a relative rotation of 0\si{\degree} (degrees).
@@ -149,7 +160,7 @@
   attempting to detect gestures, comparing the general figure of a curve being
   performed by a user.
 
-  \subsection{Gesture Controller}
+  \subsubsection{Gesture Controller}
   For each new data point being collected by the \verb_FragmentManager_, the
   then processed data is passed to the \verb_GestureController_. Here is where
   the gesture detection magic happens. This controller connects to the
@@ -228,7 +239,7 @@
   We thought implementing a system for this was an awesome challenge to use for
   gesture recognition.
 
-  \subsection{Web interface}
+  \subsubsection{Web interface}
   The platform provides a web interface for control. First of all, this
   interface provides a real-time visualiser for the processed sensor data. To
   achieve this, the web backend in our platform talks to various components in
